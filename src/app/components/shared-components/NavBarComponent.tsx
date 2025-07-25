@@ -61,7 +61,7 @@ const NavBarComponent = () => {
                         overlay={false}
 
                         className='lg:hidden visible fixed top-0 bottom-0 flex justify-start flex-col md:w-[50%] w-[70%] h-screen bg-gradient-to-b from-gray-900 to-black'
-                        placeholder={""} onPointerEnterCapture={() => { }} onPointerLeaveCapture={() => { }}
+                        placeholder={""} onPointerEnterCapture={() => { }} onPointerLeaveCapture={() => { }} onResize={() => {}} onResizeCapture={() => {}}
                     >
 
 
