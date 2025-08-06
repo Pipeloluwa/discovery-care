@@ -61,7 +61,7 @@ export const animateFadeUp: Variants = {
     visibility: "visible",
     transition: {
       type: 'spring',
-      duration: 3,
+      duration: 2,
       delay: delayNo,
       
     }
@@ -84,7 +84,7 @@ export const animateFadeDown: Variants = {
     visibility: "visible",
     transition: {
       type: 'spring',
-      duration: 3,
+      duration: 2,
       delay: delayNo,
       
     }

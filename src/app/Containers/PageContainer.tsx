@@ -26,7 +26,7 @@ const PageContainer = ({children}: {children:React.ReactNode;})=> {
 
   
   return (
-    <div ref={parentDivRef} className='h-screen overflow-hidden overflow-y-scroll bg-white'>
+    <div ref={parentDivRef} className='h-screen overflow-hidden overflow-y-scroll '>
       <NavBarComponent />
         {children}
       <FooterComponent />

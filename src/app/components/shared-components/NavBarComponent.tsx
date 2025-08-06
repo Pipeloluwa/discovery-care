@@ -110,7 +110,7 @@ const NavBarComponent = () => {
 
 
 
-            <div className={`${navBgState ? "translate-y-0 duration-700 ease-linear bg-black" : "-translate-y-24"} backdrop-blur-md absolute left-0 right-0 h-full flex`} />
+            <div className={`${navBgState ? "translate-y-0 duration-700 ease-linear bg-gradient-to-r from-blue-600/65 to-[#f69931]/65" : " blue-bg-gradient"} backdrop-blur-md absolute left-0 right-0 h-full flex`} />
 
 
             <div className=" absolute left-0 right-0 flex w-[90%] gap-x-4 mx-auto justify-between items-center text-[14px]">

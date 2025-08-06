@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { interFont } from "./fonts/fontsConfig";
+import { arimaFont, interFont } from "./fonts/fontsConfig";
 import "./globals.css";
 import StateProvider from "./state_management/provider";
 import PageContainer from "./Containers/PageContainer";
@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${interFont.className} antialiased`}
+        className={`${arimaFont.className} antialiased  bg-white text-gray-700`}
       >
         <StateProvider>
             <PageContainer>

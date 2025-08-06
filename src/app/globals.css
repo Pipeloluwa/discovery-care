@@ -1,10 +1,55 @@
 @import "tailwindcss";
 
+.yellow-color{
+  color: #f69931;
+}
+
+.blue-color{
+  color: #0d3385 ;
+}
+
+.pink-color{
+  color: #b03355;
+}
+
+.green-color{
+  color: #3c8148 ;
+}
+
+
+
+
+.yellow-bg{
+  background-color: #f69931;
+}
+
+.blue-bg{
+  background-color: #0d3385 ;
+}
+
+.pink-bg{
+  background-color: #b03355;
+}
+
+.green-bg{
+  background-color: #3c8148 ;
+}
+
+
 
 button{
   cursor: pointer;
 }
 
+
+.bottom-left-rounded {
+    border-bottom-left-radius: 200px;
+}
+
+
+.tilt-left{
+  rotate: -30deg;
+}
 
 .rhombus-clip{
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
@@ -13,13 +58,52 @@ button{
 
 
 
+.animated-background {
+  background: linear-gradient(90deg, #3e6ee600, #3e6ee680, #3e6ee600);
+  background-size: 300% 300%;
+  animation: moveBackground 5s infinite alternate;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.animated-background2 {
+  background: linear-gradient(90deg, #155dfc, #f6c231, #b03355, #62d876);
+  background-size: 300% 300%;
+  animation: moveBackground 3s infinite alternate;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
 @layer components {
   .big-button{
-    @apply md:min-w-[300px]  sm:h-[55px] sm:min-w-[205px] min-w-[170px] h-[50px] text-xl rounded shadow-sm shadow-gray-400
+    @apply px-4 md:min-w-[150px]  sm:h-[45px] sm:min-w-[205px] min-w-[140px] h-[40px] text-xl rounded shadow-sm shadow-gray-600 hover:bg-[#f69931] bg-gradient-to-r from-[#002983] bg-blue-500 transition-all duration-1000
   }
-
-
+  
   .small-button{
-    @apply  sm:h-[40px] sm:w-[130px] h-[35px] w-[90px] text-lg rounded shadow-sm shadow-gray-400
+    @apply px-4  sm:h-[40px] sm:w-[130px] h-[35px] w-[90px] text-lg rounded shadow-sm shadow-gray-400 hover:bg-[#f69931] bg-gradient-to-r from-[#002983] bg-blue-500 transition-all duration-1000
   }
+
+
+  .blue-bg-gradient{
+    @apply bg-gradient-to-r from-blue-600 to-[#f69931]
+  }
+
 }

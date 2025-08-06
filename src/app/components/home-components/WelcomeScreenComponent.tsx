@@ -1,49 +1,81 @@
+"use client"
 import MarginContainer from '@/app/Containers/MarginContainer'
+import { motion } from 'motion/react'
 import React from 'react'
 
 export const WelcomeScreenComponent = () => {
   const welcomeScreenData = {
-    "bigTitle": "We give seniors the love they deserve",
-    "caption": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
+    "bigTitle": "Discovery Care Services",
+    "caption": "We provide a wide range of healthcare services to meet your needs. From primary care to specialized treatments, our team is dedicated to delivering exceptional care with compassion and expertise.",
     "buttonText": "Our Care Services",
-    "image": "https://images.unsplash.com/photo-1743456117605-e673068f0fa5?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "image": "/images/pictures/welcome-bg.webp"
   }
 
 
 
   return (
-    <MarginContainer>
-      <div className='w-full h-svh flex items-center gap-x-16'>
 
-        <div className="w-full flex flex-col justify-center gap-y-5">
-          <h1 className="text-6xl font-bold">
-            {welcomeScreenData.bigTitle}
+    <div className='w-full h-svh relative flex justify-center items-center'>
+
+      <div className='w-full h-full flex absolute left-0 right-0 top-0 bottom-0 overflow-hidden'>
+        <motion.img 
+            animate={{scale: [1, 1.5, 1]}}
+            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+            src={welcomeScreenData.image} 
+            alt="welcome-background-image" 
+            className='w-full h-full flex object-cover' 
+          />
+      </div>
+
+      <motion.img 
+        animate={{ y: [0, 36, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        src={"/images/graphics/g1.png"} 
+        alt='graphics image' 
+        className='w-[400px] absolute left-20 bottom-0' 
+        />
+
+
+
+      <motion.img 
+        animate={{ y: [0, -36, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        src={"/images/graphics/g1.png"} 
+        alt='graphics image' 
+        className='w-[200px] absolute right-60 top-35' 
+        />
+
+
+      <div className='z-20 w-full h-full flex justify-center items-center absolute left-0 right-0 top-0 bottom-0 '>
+        <MarginContainer>
+          <h1 className="text-6xl text-center font-bold text-blue-500 text-shadow-2xs text-shadow-black">
+            <span className='flex flex-wrap justify-center items-center yellow-color text-7xl tracking-wider'>
+              {"Disc"} 
+
+              <motion.img 
+                  animate={{ rotate: [360, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                  className='h-[55px]' src="/images/graphics/g2_.png" alt="letter o" 
+                /> 
+
+              {"very Care"} 
+            </span>  
+            {welcomeScreenData.bigTitle.substring(15, welcomeScreenData.bigTitle.length)}
           </h1>
 
-          <p className="text-lg max-w-2xl">
+          <p className="animated-background w-[65%] mx-auto text-center tracking-wider text-lg text-white text-shadow-2xs text-shadow-black font-bold p-4 rounded-lg mt-4">
             {welcomeScreenData.caption}
           </p>
 
           <div>
-            <button className="big-button bg-green-600 text-white hover:bg-green-700 transition duration-300">
+            <button className="big-button font-bold text-white ">
               {welcomeScreenData.buttonText}
             </button>
           </div>
 
-        </div>
-
-        <div className='w-full h-[500px] relative flex'>
-          <div className='w-full h-[500px] absolute  top-10 rhombus-clip overflow-hidden bg-gradient-to-r from-gray-200 via-gray-300 to-transparent' />
-          <div className='w-full h-[500px] absolute  top-5 rhombus-clip overflow-hidden bg-gradient-to-r from-green-400 via-green-600 to-transparent' />
-
-          <div className='w-full h-[500px] absolute rhombus-clip overflow-hidden'>
-            <img src={welcomeScreenData.image} alt="" className='w-full h-full flex object-cover' />
-          </div>
-
-        </div>
-
-
+        </MarginContainer>
       </div>
-    </MarginContainer>
+
+    </div>
   )
 }
