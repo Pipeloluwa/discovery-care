@@ -142,7 +142,7 @@ export const ServicesComponent = () => {
                                     <p className="lg:text-lg text-sm mb-6">
                                         {`${selectedService.description.substring(0, 350)}`} {`${servicesData.services[0].description.length > 350 ? "..." : ""}`}
                                     </p>
-                                    <Link href="" className="small-button text-white font-bold">
+                                    <Link href="/services" className="small-button text-white font-bold">
                                         {"See all our services"}
                                     </Link>
                                 </motion.div>
