@@ -80,7 +80,7 @@ const WelcomeScreenComponent = () => {
                 <motion.img
                   animate={{ rotate: [360, 0] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                  className='sm:mt-0 mt-2 lg:h-[55px] md:h-[45px] sm:h-[35px] h-[30px]' src="/images/graphics/g2_.png" alt="letter o"
+                  className='sm:mt-0 lg:h-[55px] md:h-[45px] sm:h-[35px] h-[30px]' src="/images/graphics/g2_.png" alt="letter o"
                 />
               </motion.div>
 
