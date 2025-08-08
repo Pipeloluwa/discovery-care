@@ -16,8 +16,7 @@ const NavBarComponent = () => {
     const navValue = useSelector((state: RootState) => state.navValue.value);
 
     const navItemValues = {
-        "firstSegment": ["Home", "About", "Contact", "Services"],
-        "secondSegment": ["Start"]
+        "firstSegment": ["Home", "About", "Contact", "Services"]
     }
 
 
@@ -48,7 +47,7 @@ const NavBarComponent = () => {
         >
 
 
-                
+
             {
                 openDrawer
                     ?
@@ -60,12 +59,12 @@ const NavBarComponent = () => {
                         size={400}
                         overlay={false}
 
-                        className='lg:hidden visible fixed top-0 bottom-0 flex justify-start flex-col md:w-[50%] w-[70%] h-screen bg-gradient-to-b from-gray-900 to-black'
-                        placeholder={""} onPointerEnterCapture={() => { }} onPointerLeaveCapture={() => { }} onResize={() => {}} onResizeCapture={() => {}}
+                        className='blue-bg-gradient-bottom z-50 lg:hidden visible fixed top-0 bottom-0 flex justify-start flex-col w-[50%] h-screen rounded-l-2xl overflow-hidden'
+                        placeholder={""} onPointerEnterCapture={() => { }} onPointerLeaveCapture={() => { }} onResize={() => { }} onResizeCapture={() => { }}
                     >
 
 
-                        <div className='fixed right-0 flex justify-end items-end'>
+                        <div className='fixed right-9 flex justify-end items-end'>
                             <IoCloseSharp onClick={() => { closeDrawer_() }} className="h-20 cursor-pointer size-[50px] mr-4 " />
                         </div>
 
@@ -75,7 +74,7 @@ const NavBarComponent = () => {
 
                             <div className='pt-16 flex flex-col items-start overflow-hidden overflow-y-scroll pr-[70px] w-full h-full justify-between gap-y-12'>
 
-                                <ul className='w-full flex flex-col gap-y-8 py-4 font-bold text-sm'>
+                                <ul className=' flex flex-col gap-y-8 py-4 font-bold text-sm'>
 
                                     {
                                         navItemValues.firstSegment.map((item, index) =>
@@ -84,7 +83,7 @@ const NavBarComponent = () => {
                                                 href={`/${item === "Home" ? "" : item.toLowerCase()}`}
                                                 onClick={closeDrawer_}
                                                 key={`navItemValueMobile${index}`}
-                                                className={`cursor-pointer ${navValue === item ? 'bg-white shadow-gray-500 text-orange-600' : ''} p-2 px-4 ml-2 transition-colors duration-300 ease-linear rounded-2xl`}>
+                                                className={`cursor-pointer ${navValue === item ? 'bg-white shadow-gray-500 text-yellow-600' : ''} p-2 px-4 ml-2 transition-colors duration-300 ease-linear rounded-2xl`}>
                                                 {item}
                                             </Link>
                                         )
@@ -115,41 +114,29 @@ const NavBarComponent = () => {
 
             <div className=" absolute left-0 right-0 flex w-[90%] gap-x-4 mx-auto justify-between items-center text-[14px]">
 
-                <ul className='flex justify-center items-center'>
-                    <li className='flex rounded-xl overflow-hidden size-[50px]'>
-                        <LogoComponent />
-                    </li>
+                <ul className='lg:w-[30%] w-[500px] flex justify-start items-center'>
+                    <Link href={`./`} className='w-full flex justify-betrween items-center gap-x-2'>
+                        <li className='flex justify-center items-center rounded-full overflow-hidden size-[65px] bg-white px-[2px] pb-2'>
+                            <LogoComponent />
+                        </li>
+
+                        <p>
+                            {"Discovery-Care"}
+                        </p>
+                    </Link>
+
                 </ul>
 
 
 
-                <ul className='lg:flex hidden w-full gap-x-6 justify-center items-center'>
+                <ul className='-ml-[30%] lg:flex hidden w-full gap-x-6 justify-center items-center'>
 
                     {
                         navItemValues.firstSegment.map((item, index) =>
                             <Link
                                 key={`navItemValueLarge${index}`}
-                                 href={`/${item === "Home" ? "" : item.toLowerCase()}`}
-                                className={`cursor-pointer ${navValue === item ? 'bg-white shadow-gray-500 text-orange-600' : ''} hover:bg-orange-400 hover:text-white py-2 px-4 rounded-2xl transition-colors duration-300 ease-linear`}>
-                                {item}
-                            </Link>
-                        )
-
-                    }
-
-                </ul>
-
-
-
-
-                <ul className='lg:flex hidden justify-end items-center gap-x-[20px] text-[13px]'>
-
-                    {
-                        navItemValues.secondSegment.map((item, index) =>
-                            <Link
-                                key={`navItemValueLarge${index}`}
                                 href={`/${item === "Home" ? "" : item.toLowerCase()}`}
-                                className={` cursor-pointer border-2 text-white border-white bg-transparent h-10 min-w-[150px] flex justify-center items-center rounded-lg text-center shadow-sm shadow-gray-700`}>
+                                className={`cursor-pointer ${navValue === item ? 'bg-white shadow-gray-500 text-yellow-600' : ''} hover:bg-yellow-500 hover:text-white py-2 px-4 rounded-2xl transition-colors duration-300 ease-linear`}>
                                 {item}
                             </Link>
                         )
@@ -157,6 +144,7 @@ const NavBarComponent = () => {
                     }
 
                 </ul>
+
 
 
 
@@ -174,7 +162,7 @@ const NavBarComponent = () => {
 
             {
                 openDrawer
-                && <div className="z-50 lg:hidden fixed left-0 right-0 top-0 bottom-0 bg-black/50 backdrop-blur-sm w-screen h-screen" />
+                && <div className="z-40 lg:hidden fixed left-0 right-0 top-0 bottom-0 bg-black/50 backdrop-blur-sm w-screen h-screen" />
             }
 
         </nav>

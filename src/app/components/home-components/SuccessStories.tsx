@@ -1,5 +1,5 @@
 "use client"
-import { animateFromLeft } from '@/app/animation/animationVariants';
+import { animateFadeUp, animateFromLeft, animateFromRight, animateGradualSpacing } from '@/app/animation/animationVariants';
 import MarginContainer from '@/app/Containers/MarginContainer';
 import { IconButton } from '@material-tailwind/react';
 import Slider from "@ant-design/react-slick";
@@ -15,27 +15,27 @@ import { FaQuoteRight } from 'react-icons/fa';
 const sucessStoryData = [
     {
         id: 1,
-        image: 'https://images.unsplash.com/photo-1743456117605-e673068f0fa5?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        image: 'https://images.unsplash.com/photo-1551892589-865f69869476?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         title: 'Community Event',
         description: 'A community event bringing people together for a cause.',
     },
 
     {
         id: 2,
-        image: 'https://images.unsplash.com/photo-1743456117605-e673068f0fa5?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        image: 'https://plus.unsplash.com/premium_photo-1688125414656-ab91164cbd1e?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         title: 'Volunteer Work',
         description: 'Volunteers working hard to make a difference in the community.',
     },
     {
         id: 3,
-        image: 'https://images.unsplash.com/photo-1743456117605-e673068f0fa5?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        image: 'https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         title: 'Fundraising Event',
         description: 'A successful fundraising event to support our cause.',
 
     },
     {
         id: 4,
-        image: 'https://images.unsplash.com/photo-1743456117605-e673068f0fa5?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        image: 'https://images.unsplash.com/photo-1604881991720-f91add269bed?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         title: 'Community Gathering',
         description: 'A gathering of community members to discuss important issues.',
 
@@ -48,14 +48,14 @@ export const SuccessStories = () => {
     const sliderRef = React.useRef<Slider | null>(null);
 
     return (
-        <div className='w-full min-h-svh flex flex-col items-center justify-center gap-y-8 bg-gradient-to-b from-white via-blue-100  to-blue-500'>
+        <div className='w-full lg:h-[75svh] pb-24 flex flex-col items-center gap-y-8 bg-gradient-to-b from-white via-blue-200  to-blue-500'>
 
             <MarginContainer>
                 <SubHeaderComponent headerValue='Success Stories' />
 
-                <div className="w-full h-[250px] relative flex gap-x-3 justify-center items-center">
+                <div className="w-full md:h-[250px] h-[75vh] relative flex gap-x-3 justify-center items-center">
 
-                    <div className="z-10 absolute left-12 lg:left-20 justify-center items-center">
+                    <div className="z-10 absolute lg:left-20 left-3  justify-center items-center">
                         <IconButton onClick={() => { return sliderRef.current && sliderRef.current.slickPrev(); }} onResize={() => { }} onResizeCapture={() => { }}
                             className="cursor-pointer flex justify-center items-center rounded-full size-[40px] mx-auto bg-blue-500/70 text-white border-3 border-white shadow-sm shadow-black"
                             placeholder='' onPointerEnterCapture onPointerLeaveCapture
@@ -76,7 +76,7 @@ export const SuccessStories = () => {
                             slidesToShow={1}
                             slidesToScroll={1}
                             infinite={true}
-                            speed={3400}
+                            speed={1400}
                             autoplay={true}
                             pauseOnHover={true}
                             className="w-full h-full justify-center items-center overflow-hidden"
@@ -84,11 +84,11 @@ export const SuccessStories = () => {
                             {
                                 sucessStoryData.map((item, index) => {
                                     return (
-                                        <div key={`successStoriesHome${index}`} className='w-full lg:h-[250px] h-[200px] flex drop-shadow pb-2'>
+                                        <div key={`successStoriesHome${index}`} className='w-full md:h-[250px] h-full flex drop-shadow pb-2'>
 
-                                            <div className='w-full h-full flex justify-between items-center'>
+                                            <div className='w-full h-full flex md:flex-row flex-col justify-between items-center '>
 
-                                                <div className='w-[45%] h-full overflow-hidden flex items-center shadow shadow-black'>
+                                                <div className='md:w-[45%] w-full md:h-full h-[300px] overflow-hidden flex items-center'>
                                                     <motion.div
                                                         viewport={{ once: true }}
                                                         variants={animateFromLeft}
@@ -102,6 +102,7 @@ export const SuccessStories = () => {
                                                             transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}
                                                             alt='project picture'
                                                             src={item.image}
+                                                            loading='eager'
                                                             className='flex w-full h-full object-cover' />
 
                                                     </motion.div>
@@ -109,16 +110,38 @@ export const SuccessStories = () => {
                                                 </div>
 
 
-                                                <div className={`${index % 4 == 3 ? "bg-green-200" : index % 4 == 2 ? "bg-yellow-200" : index % 4 == 1 ? "bg-purple-200" : "bg-blue-200"} w-[55%] h-full flex flex-col gap-y-4 justify-center items-start pl-12`}>
-                                                    <FaQuoteRight className="text-blue-600 size-[40px]" />
+                                                <div className={`${index % 4 == 3 ? "bg-green-200" : index % 4 == 2 ? "bg-yellow-200" : index % 4 == 1 ? "bg-purple-200" : "bg-blue-200"} md:w-[55%] w-full h-full flex flex-col gap-y-4 justify-center items-start px-12 py-8`}>
+                                                    <FaQuoteRight className="text-blue-600 md:size-[40px] size-[25px]" />
 
-                                                    <p className='text-lg text-black'>{item.description.substring(0, 100)} {item.description.length > 100 && "..."}</p>
-                                                    <h3 className='text-xl text-blue-600 font-semibold'>{item.title}</h3>
+                                                    <motion.p
+                                                        variants={animateFromRight}
+                                                        initial={"offscreen"}
+                                                        whileInView={"onscreen"}
+                                                        className='lg:text-lg text-black'>
+
+                                                        {item.description.substring(0, 100)} {item.description.length > 100 && "..."}
+                                                    </motion.p>
+
+
+                                                    <h3 className='flex whitespace-pre-wrap lg:text-xl text-lg text-blue-600 font-semibold'>
+
+                                                        {
+                                                            item.title.split("").map((char, index) =>
+                                                                <motion.p
+                                                                    key={`Welcome to${index}`}
+                                                                    variants={animateGradualSpacing}
+                                                                    initial={"offscreen"}
+                                                                    whileInView={"onscreen"}
+                                                                    custom={index}>
+
+                                                                    {char}
+                                                                </motion.p>
+                                                            )
+                                                        }
+                                                    </h3>
+
                                                 </div>
                                             </div>
-
-
-
 
                                         </div>
                                     )
@@ -129,7 +152,7 @@ export const SuccessStories = () => {
 
 
 
-                    <div className="z-10 absolute right-12 lg:right-20 justify-center items-center ">
+                    <div className="z-10 absolute lg:right-20 right-3 justify-center items-center ">
                         <IconButton onClick={() => { return sliderRef.current && sliderRef.current.slickNext(); }} onResize={() => { }} onResizeCapture={() => { }}
                             className="cursor-pointer flex justify-center items-center rounded-full size-[40px] mx-auto bg-blue-500/70 text-white border-3 border-white shadow-sm shadow-black"
                             placeholder='' onPointerEnterCapture onPointerLeaveCapture

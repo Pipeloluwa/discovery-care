@@ -70,6 +70,28 @@ export const animateFadeUp: Variants = {
 }
 
 
+export const animateFadeUpShort: Variants = {
+  offscreen: {
+    opacity: 0, 
+    y: 50,
+    visibility: "hidden"
+  },
+
+  onscreen:(delayNo: number)=> ({
+    opacity: 1, 
+    y: 0,
+    visibility: "visible",
+    transition: {
+      type: 'spring',
+      duration: 2,
+      delay: delayNo,
+      
+    }
+  }),
+
+}
+
+
 
 export const animateFadeDown: Variants = {
   offscreen: {

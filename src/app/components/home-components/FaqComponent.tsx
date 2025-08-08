@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { IoArrowForwardOutline } from 'react-icons/io5';
 import { SubHeaderComponent } from '../shared-components/SubHeaderComponent';
 import { motion } from 'motion/react';
+import { animateBlurIn, animateFadeUp } from '@/app/animation/animationVariants';
 
 const faqs = [
     {
@@ -34,7 +35,7 @@ const faqs = [
         question: "What areas do you serve?",
         answer: "We serve multiple regions, please check our service area page for more details. We are continuously expanding our reach to help more seniors in need.",
     },
-    
+
 ]
 
 export const FaqComponent = () => {
@@ -54,7 +55,7 @@ export const FaqComponent = () => {
         const handleHeightChange = (entries: ResizeObserverEntry[]) => {
             for (let entry of entries) {
                 const newHeight = entry.target.scrollHeight;
-                if (faqParentContainerRef.current) faqParentContainerRef.current.style.height= `${newHeight}px`;
+                if (faqParentContainerRef.current) faqParentContainerRef.current.style.height = `${window.innerWidth >= 1024 && newHeight}px`;
             }
         };
 
@@ -70,14 +71,17 @@ export const FaqComponent = () => {
     return (
 
 
-        <div className='w-full min-h-[480px] flex justify-center items-start mb-32 bg-blue-50 shadow'>
+        <div className='w-full lg:min-h-[480px] flex lg:flex-row flex-col justify-center items-start mb-32 bg-blue-50 shadow'>
 
-            <motion.div  
+            <motion.div
                 ref={faqParentContainerRef}
+                variants={animateBlurIn}
+                initial={"offscreen"}
+                whileInView={"onscreen"}
                 className={`w-full h-[480px] flex justify-center bg-gradient-to-b from-blue-500 to-blue-900 overflow-hidden`}>
-                
+
                 <motion.img
-                    src={"https://images.unsplash.com/photo-1743456117605-e673068f0fa5?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}
+                    src={"https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}
                     alt="About Us"
                     animate={{ scale: [1, 2, 1] }}
                     transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
@@ -85,17 +89,24 @@ export const FaqComponent = () => {
                 />
             </motion.div>
 
-            <div 
+            <div
                 ref={faqContainerRef}
                 className="w-full h-full relative flex flex-col pl-6 pr-6 ">
 
-                <h4 className='sticky py-6 top-0 text-2xl font-bold text-blue-500 '>
+                <h4 className='sticky pt-8 pb-6 top-0 text-2xl font-bold text-blue-500 '>
                     {"Frequently Asked Questions"}
                 </h4>
-                    
+
 
                 {faqs.map((faq, index) => (
-                    <div key={index} className={`${index === faqs.length - 1 && "border-b"} ${openIndex === index && "shadow"} w-full flex flex-col border-t border-gray-200`}>
+                    <motion.div
+                        key={index}
+                        variants={animateFadeUp}
+                        initial={"offscreen"}
+                        whileInView={"onscreen"}
+                        custom={0.2 * index}
+                        className={`${index === faqs.length - 1 && "border-b"} ${openIndex === index && "shadow"} w-full flex flex-col border-t border-gray-200`}>
+
                         <button
                             className={` ${openIndex === index ? "bg-blue-500 text-white" : "bg-transparent"} w-full p-4 transition-colors duration-300 text-left font-semibold focus:outline-none flex justify-between items-center`}
                             onClick={() => handleToggle(index)}
@@ -109,7 +120,7 @@ export const FaqComponent = () => {
                         {openIndex === index && (
                             <p className="mx-3 text-gray-700 mt-2 mb-4 transform-fill duration-300">{faq.answer}</p>
                         )}
-                    </div>
+                    </motion.div>
                 ))}
             </div>
 

@@ -7,65 +7,67 @@ import Slider from "@ant-design/react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { motion } from 'motion/react';
-import { animateFadeDown, animateFadeUp, animateFadeUpShort, animateFromLeft, animateGradualSpacing } from '@/app/animation/animationVariants';
+import { animateFadeUpShort, animateFromLeft, animateGradualSpacing } from '@/app/animation/animationVariants';
 import { SubHeaderComponent } from '../shared-components/SubHeaderComponent'
 import { div } from 'motion/react-client'
 
 
-const galleryData = [
+
+
+const staffData = [
     {
         id: 1,
         image: 'https://images.unsplash.com/photo-1743456117605-e673068f0fa5?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        title: 'Community Event',
-        description: 'A community event bringing people together for a cause.',
+        title: 'Director of Community Outreach',
+        name: 'Ngozi Adebayo'
     },
 
     {
         id: 2,
         image: 'https://plus.unsplash.com/premium_photo-1681883882438-84077fb862f4?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        title: 'Volunteer Work',
-        description: 'Volunteers working hard to make a difference in the community.',
+        title: 'Volunteer Coordinator',
+        name: 'Chukwuemeka Okoro'
     },
     {
         id: 3,
         image: 'https://images.unsplash.com/photo-1478061653917-455ba7f4a541?q=80&w=1700&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        title: 'Fundraising Event',
-        description: 'A successful fundraising event to support our cause.',
+        title: 'Fundraising Manager',
+        name: 'Ifeoma Eze'
 
     },
     {
         id: 4,
-        image: 'https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        title: 'Community Gathering',
-        description: 'A gathering of community members to discuss important issues.',
+        image: 'https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D',
+        title: 'Community Liaison',
+        name: 'Babatunde Adebisi'
 
     },
     {
         id: 5,
-        image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        title: 'Volunteer Work',
-        description: 'A successful fundraising event to support our cause.',
+        image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D',
+        title: 'Volunteer Assistant',
+        name: 'Amina Musa'
 
     },
     {
         id: 6,
-        image: 'https://plus.unsplash.com/premium_photo-1670588892177-48887618307d?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        title: 'Caregiver Training',
-        description: 'A gathering of community members to discuss important issues.',
+        image: 'https://plus.unsplash.com/premium_photo-1670588892177-48887618307d?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D',
+        title: 'Caregiver Trainer',
+        name: 'Olufemi Ogunleye'
 
     },
     {
         id: 7,
-        image: 'https://images.unsplash.com/photo-1589156288859-f0cb0d82b065?q=80&w=386&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        title: 'Visiting Seniors',
-        description: 'A community event bringing people together for a cause.',
+        image: 'https://images.unsplash.com/photo-1589156288859-f0cb0d82b065?q=80&w=386&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D',
+        title: 'Senior Services Coordinator',
+        name: 'Adaugo Okeke'
     },
 
     {
         id: 8,
-        image: 'https://plus.unsplash.com/premium_photo-1668061706855-26d4cf0f6248?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        title: 'Community Support',
-        description: 'Volunteers working hard to make a difference in the community.',
+        image: 'https://plus.unsplash.com/premium_photo-1668061706855-26d4cf0f6248?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D',
+        title: 'Community Support Specialist',
+        name: 'Emeka Ibe'
     },
 ]
 
@@ -100,7 +102,7 @@ const sliderResponsiveSettings = [
 
 ];
 
-export const GalleryComponent = () => {
+export const StaffComponent = () => {
     const sliderRef = useRef<Slider | null>(null);
 
 
@@ -108,7 +110,7 @@ export const GalleryComponent = () => {
         <div className='w-full h-full flex flex-col items-center justify-center gap-y-8 '>
 
             <MarginContainer>
-                <SubHeaderComponent headerValue='Our Gallery' />
+                <SubHeaderComponent headerValue='Our Experienced Staff' />
             </MarginContainer>
 
             <div className="w-full h-[500px] relative flex  gap-x-3 justify-center items-center">
@@ -141,7 +143,7 @@ export const GalleryComponent = () => {
                         className="w-full h-full justify-center items-center overflow-hidden"
                     >
                         {
-                            galleryData.map((item, index) => {
+                            staffData.map((item, index) => {
                                 return (
                                     <div key={`galleryHome${index}`} className='overflow-hidden  md:w-[350px] w-full flex flex-col justify-center items-center p-4'>
 
@@ -159,7 +161,6 @@ export const GalleryComponent = () => {
                                                     transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}
                                                     alt='project picture'
                                                     src={item.image}
-                                                    loading='eager'
                                                     className='flex w-full h-full object-cover' />
 
                                             </motion.div>
@@ -168,9 +169,7 @@ export const GalleryComponent = () => {
 
 
                                         <div className={`${gradientColors[index % 4]} w-[100%] min-h-[120px] flex flex-col justify-center items-center mx-auto p-4 shadow`}>
-                                            <motion.h3
-                                                className='flex whitespace-pre-wrap text-lg text-blue-600 font-semibold text-center'>
-
+                                            <h3 className='flex whitespace-pre-wrap text-lg text-blue-600 font-semibold text-center'>
                                                 {
                                                     item.title.split("").map((char, index) =>
                                                         <motion.p
@@ -184,18 +183,15 @@ export const GalleryComponent = () => {
                                                         </motion.p>
                                                     )
                                                 }
-                                            </motion.h3>
-
-
+                                            </h3>
 
                                             <motion.p
                                                 variants={animateFadeUpShort}
                                                 initial={"offscreen"}
                                                 whileInView={"onscreen"}
-                                                custom={0.2}
-                                                className='text-sm text-gray-600 text-center mt-2'>
+                                                className='text-sm text-gray-600 text-center mt-2 italic'>
 
-                                                {item.description.substring(0, 60)} {item.description.length > 60 && "..."}
+                                                {item.name.substring(0, 60)} {item.name.length > 60 && "..."}
                                             </motion.p>
                                         </div>
 

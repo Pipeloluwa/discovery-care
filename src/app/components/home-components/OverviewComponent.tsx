@@ -1,49 +1,68 @@
+"use client";
 import MarginContainer from '@/app/Containers/MarginContainer'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsPersonCheckFill } from 'react-icons/bs'
 import { SubHeaderComponent } from '../shared-components/SubHeaderComponent'
+import { GrSupport } from 'react-icons/gr'
+import { FaPeopleGroup } from 'react-icons/fa6'
+import { animateFadeUp } from '@/app/animation/animationVariants';
+import { motion } from 'motion/react';
 
 export const OverviewComponent = () => {
-    const subHeading= "At DiscoveryCare Group, we deliver personalized NDIS support services designed to empower individuals to live independently, reach their goals, and flourish within their communities. Our high-quality, person-centered approach ensures that support is tailored to your unique needs and aspirations, helping you achieve a fulfilling and autonomous life.";
+    
+    const subHeading = "At DiscoveryCare Group, we deliver personalized NDIS support services designed to empower individuals to live independently, reach their goals, and flourish within their communities. Our high-quality, person-centered approach ensures that support is tailored to your unique needs and aspirations, helping you achieve a fulfilling and autonomous life.";
     const overviewData = [
         {
-            "title": "Home Care",
-            "description": "We provide personalized care in the comfort of your home, ensuring safety and companionship for seniors.",
-            "image": <BsPersonCheckFill />,
+            "title": "Tailored",
+            "description": "Tailored, participant-focused care.",
             "color": "text-yellow-500"
         },
 
         {
-            "title": "Community Activities",
-            "description": "We organize engaging community activities that promote social interaction and mental well-being for seniors.",
-            "image": "https://images.unsplash.com/vector-1744361488644-e5ae730c0140?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "title": "Flexible ",
+            "description": "Flexible and reliable support",
             "color": "text-purple-500"
         },
 
         {
-            "title": "Health Monitoring",
-            "description": "We offer regular health monitoring services to ensure the well-being of seniors, including medication management and health check-ups.",
-            "image": "https://images.unsplash.com/vector-1744361488644-e5ae730c0140?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "title": "Experienced",
+            "description": "Experienced and compassionate professionals",
             "color": "text-green-500"
         }
     ]
 
 
+    const overviewIcons = [
+        <BsPersonCheckFill className='lg:size-[50px] md:size-[40px] size-[30px]' />,
+        <GrSupport className='lg:size-[50px] md:size-[40px] size-[30px]' />,
+        <FaPeopleGroup className='lg:size-[50px] md:size-[40px] size-[30px]' />
+    ];
+
+
     return (
         <MarginContainer>
 
-            <p className='mt-28 w-[70%] mx-auto flex text-center'>
+            <motion.p
+                variants={animateFadeUp}
+                initial={"offscreen"}
+                whileInView={"onscreen"}
+                className='mt-28 lg:w-[70%] md:w-[80%] w-full mx-auto flex text-center'>
                 <span className='text-6xl'>{"\""}</span>{subHeading}<span className='text-6xl'>{"\""}</span>
-            </p>
+            </motion.p>
 
-            <div className="w-full grid grid-cols-3 items-center justify-between gap-x-12">
+            <div className="w-full grid sm:grid-cols-3 grid-cols-2 items-start justify-between ld:gap-x-12 md:gap-x-8 gap-6">
                 {
                     overviewData.map((overview, index) =>
-                        <div key={`overviewData ${index}`} className='w-full flex flex-col justify-center items-center'>
-                            <div className={` ${overview.color} flex justify-center items-center`}>
-                                <BsPersonCheckFill className='size-[50px]' />
-
-                                <h3 className='text-2xl font-bold text-center p-4'>
+                        <motion.div
+                            key={`overviewData ${index}`}
+                            variants={animateFadeUp}
+                            initial={"offscreen"}
+                            whileInView={"onscreen"}
+                            custom={0.2 * index}
+                            className={`${overviewData.length === (index + 1) ? "sm:col-span-1 col-span-2" : "col-span-1"} w-full flex flex-col justify-center items-center`}>
+                            <div className={` ${overview.color} flex justify-center items-center gap-x-2 lg:p-4`}>
+                                {overviewIcons[index]}
+                                <h3 className='lg:text-2xl font-bold text-center '>
                                     {overview.title}
                                 </h3>
                             </div>
@@ -54,7 +73,7 @@ export const OverviewComponent = () => {
                                 {`${overview.description.substring(0, 120)}`} {overview.description.length > 120 && "..."}
                             </p>
 
-                        </div>
+                        </motion.div>
                     )
                 }
             </div>

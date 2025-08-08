@@ -69,7 +69,7 @@ button{
 
 
 .animated-background2 {
-  background: linear-gradient(90deg, #155dfc, #f6c231, #b03355, #62d876);
+  background: linear-gradient(90deg, #155dfc, #f6c231, #f7547f, #6aee80);
   background-size: 300% 300%;
   animation: moveBackground 3s infinite alternate;
   display: flex;
@@ -94,16 +94,21 @@ button{
 
 @layer components {
   .big-button{
-    @apply px-4 md:min-w-[150px]  sm:h-[45px] sm:min-w-[205px] min-w-[140px] h-[40px] text-xl rounded shadow-sm shadow-gray-600 hover:bg-[#f69931] bg-gradient-to-r from-[#002983] bg-blue-500 transition-all duration-1000
+    @apply px-5 sm:py-2 py-3 md:min-w-[150px]  sm:h-[45px] sm:min-w-[205px] min-w-[140px] h-[40px]  rounded shadow-sm shadow-gray-600 hover:bg-[#f69931] bg-gradient-to-r from-[#1e4aa8] bg-blue-500 transition-all duration-1000
   }
   
   .small-button{
-    @apply px-4  sm:h-[40px] sm:w-[130px] h-[35px] w-[90px] text-lg rounded shadow-sm shadow-gray-400 hover:bg-[#f69931] bg-gradient-to-r from-[#002983] bg-blue-500 transition-all duration-1000
+    @apply px-5 sm:py-2 py-3  sm:h-[40px] sm:w-[130px] h-[35px] w-[90px] text-sm rounded shadow-sm shadow-gray-400 bg-gradient-to-r from-[#1e4aa8] bg-blue-500 transition-all duration-1000
   }
 
 
   .blue-bg-gradient{
     @apply bg-gradient-to-r from-blue-600 to-[#f69931]
+  }
+
+
+  .blue-bg-gradient-bottom{
+    @apply bg-gradient-to-b from-blue-600 to-[#f69931]
   }
 
 }

@@ -1,23 +1,25 @@
 "use client"
 import MarginContainer from '@/app/Containers/MarginContainer'
-import { motion } from 'motion/react'
-import React from 'react'
+import { motion, useInView } from 'motion/react'
+import React, { LegacyRef, Ref, useEffect, useRef, useState } from 'react'
 import { SubHeaderComponent } from '../shared-components/SubHeaderComponent'
+import Link from 'next/link'
+import { animateFromLeft, animateFromRight, animateVisible } from '@/app/animation/animationVariants'
 
 export const AboutComponent = () => {
     const aboutData = {
-        "description": "We are dedicated to providing exceptional care and support for seniors, ensuring they live their golden years with dignity and joy. Our team of compassionate professionals is committed to enhancing the quality of life for our residents through personalized care plans, engaging activities, and a warm, welcoming environment. We believe in treating every individual with respect and kindness, making us a trusted partner in senior care. Whether it's through our assisted living services, memory care programs, or community outreach initiatives, we strive to make a positive impact in the lives of seniors and their families. Join us in our mission to create a better tomorrow for our elders.",
+        "description": "We are a dedicated NDIS service provider committed to delivering high-quality, participant-focused care. Our goal is to help people with disabilities access the right support to lead fulfilling lives. Whether it’s assistance at home, community engagement, therapy services, or skill-building programs, DiscoveryCare Group walks with you every step of the way.",
         "buttonText": "Learn More",
         "image": "https://images.unsplash.com/photo-1743456117605-e673068f0fa5?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "statistics": [
             {
                 "title": "Great Donations",
-                "value": 45,
+                "value": 705,
                 "color": "text-yellow-300"
             },
             {
                 "title": "Happy Clients",
-                "value": 100,
+                "value": 500,
                 "color": "text-purple-300"
             },
             {
@@ -33,56 +35,107 @@ export const AboutComponent = () => {
         ]
     }
 
+
+    const [numberStat1, setNumberStat1] = useState<number>(0);
+    const [numberStat2, setNumberStat2] = useState<number>(0);
+    const [numberStat3, setNumberStat3] = useState<number>(0);
+    const [numberStat4, setNumberStat4] = useState<number>(0);
+
+    const countRef: Ref<HTMLUListElement> = useRef(null);
+    const countView = useInView(countRef, { once: false, amount: 0.3 });
+
+
+    useEffect(() => {
+        function animateNumber() {
+            numberStat1 < aboutData.statistics[0].value && setNumberStat1((value) => value + Math.round(Math.random() + 1 * (aboutData.statistics[0].value / 100)));
+            numberStat2 < aboutData.statistics[1].value && setNumberStat2((value) => value + Math.round(Math.random() + 1 * (aboutData.statistics[1].value / 100)));
+            numberStat3 < aboutData.statistics[2].value && setNumberStat3((value) => value + Math.round(Math.random() + 1 * (aboutData.statistics[2].value / 100)));
+            numberStat4 < aboutData.statistics[3].value && setNumberStat4((value) => value + Math.round(Math.random() + 1 * (aboutData.statistics[3].value / 100)));
+        }
+        
+        if (!countView) {
+            setNumberStat1(0); setNumberStat2(0); setNumberStat3(0); setNumberStat4(0);
+        }
+        setTimeout(() => animateNumber(), 50)
+    }, [numberStat1, numberStat2, numberStat3, numberStat4, countView]);
+
     return (
         <div className='w-full h-full flex flex-col items-center justify-center gap-y-8'>
             <SubHeaderComponent headerValue='Who We Are' />
 
-            <div className='w-full min-h-[480px] flex flex-col relative items-center justify-center gap-y-12 overflow-hidden'>
+            <div className='w-full lg:min-h-[480px] min-h-svh flex flex-col relative items-center justify-center gap-y-12 overflow-hidden'>
 
-                <div className="w-[50%] h-full absolute left-0 right-0 top-0 bottom-0 flex justify-center bg-gradient-to-b from-blue-500 to-blue-900 overflow-hidden">
+                <motion.div
+                    variants={animateFromLeft}
+                    initial={"offscreen"}
+                    whileInView={"onscreen"}
+                    custom={0.8}
+                    className="lg:w-[50%] w-full h-full absolute left-0 right-0 top-0 bottom-0 flex justify-center bg-gradient-to-b from-blue-500 to-blue-900 overflow-hidden">
+
                     <motion.img
                         src={aboutData.image}
                         alt="About Us"
-                        animate={{scale: [1, 2, 1]}}
+                        animate={{ scale: [1, 2, 1] }}
                         transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
                         className="w-full h-full shadow-md object-cover object-top opacity-20"
                     />
-                </div>
+                </motion.div>
 
 
                 <MarginContainer>
-                    <div className="z-20 w-full h-full flex justify-end items-center gap-x-32">
-                        <ul className='w-[35%] py-6 min-h-[50px] grid grid-cols-2 items-center justify-between border-t-[1.8px] border-b-[1.8px] border-white gap-8'>
+                    <motion.div
+                        variants={animateFromRight}
+                        initial={"offscreen"}
+                        whileInView={"onscreen"}
+                        custom={0.8}
+                        className="z-20 w-full h-full flex lg:flex-row flex-col-reverse justify-end items-center xl:gap-x-32 lg:gap-x-10 gap-y-12">
+
+                        <motion.ul
+                            ref={countRef}
+                            className='lg:w-[35%] md:w-[90%] w-full py-6 min-h-[50px] grid grid-cols-2 items-center justify-between border-t-[1.8px] border-b-[1.8px] border-white gap-8'>
                             {
+
                                 aboutData.statistics.map((stat, index) => (
-                                    <li key={`aboutStatistics${index}`} className='flex flex-col items-center justify-center gap-y-2 text-center text-white'>
-                                        <span className={`${stat.color} text-6xl font-bold `}>
-                                            {stat.value}
+                                    <motion.li
+                                        key={`aboutStatistics${index}`}
+                                        animate={{}}
+                                        transition={{ duration: 20, delay: 3000, repeat: Infinity, ease: "easeInOut" }}
+                                        className='flex flex-col items-center justify-center gap-y-2 text-center text-white md:text-base text-sm'>
+
+                                        <span className={`${stat.color} flex md:text-5xl text-3xl font-bold transition-all duration-700`}>
+                                            {
+                                                countView
+                                                &&
+                                                index === 0 ? numberStat1
+                                                    : index === 1 ? numberStat2
+                                                        : index === 2 ? numberStat3
+                                                            : numberStat4
+                                            } {" +"}
                                         </span>
                                         {stat.title}
-                                    </li>
+                                    </motion.li>
                                 ))
                             }
 
-                        </ul>
+                        </motion.ul>
 
 
-                        <motion.div 
-                            animate={{ x: [0, -16, 0] }}
+                        <motion.div
+                            animate={{ x: [-16, 16, -16] }}
                             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                            className='w-[65%] h-full flex flex-col md:flex-row items-center gap-x-16 p-12 bg-blue-50 shadow-md shadow-gray-400'>
+                            className='lg:w-[65%] md:w-[80%] w-full h-full flex items-center gap-x-16 md:p-12 p-8 bg-blue-50 shadow-md lg:shadow-gray-400 shadow-gray-600'>
 
                             <div className="flex-1">
-                                <p className="text-lg mb-6">
-                                    {`${aboutData.description.substring(0, 350)}`} {`${aboutData.description.length > 350 && "..."}`}
+                                <p className="lg:text-lg md:text-base text-sm md:text-start text-justify mb-6">
+                                    {`${aboutData.description.substring(0, 360)}`} {`${aboutData.description.length > 360 ? "..." : ""}`}
                                 </p>
-                                <button className="big-button text-white font-bold">
+                                <Link href={"/about"} className="md:big-button small-button text-white font-bold">
                                     {aboutData.buttonText}
-                                </button>
+                                </Link>
                             </div>
                         </motion.div>
 
-                    </div>
+                    </motion.div>
 
                 </MarginContainer>
             </div>

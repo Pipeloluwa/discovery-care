@@ -1,46 +1,44 @@
-"use client";
-import { animateFadeUp, animateGradualSpacing } from '@/app/animation/animationVariants';
+"use client";;
+import { animateFadeUp, animateFromLeft, animateFromRight } from '@/app/animation/animationVariants';
 import { interFont } from '@/app/fonts/fontsConfig';
-import { rootUrl } from '@/app/variables/sharedVariables';
 import emailjs from '@emailjs/browser';
-import { Input, Textarea, Button } from '@material-tailwind/react';
 import { motion } from 'motion/react';
-import Link from 'next/link';
 
 import { Ref, useRef, useState } from "react";
-import { BsTwitterX } from 'react-icons/bs';
-import { FaFacebook, FaLinkedin, FaPhoneAlt } from 'react-icons/fa';
-import { IoLocationSharp, IoLogoYoutube, IoMail } from 'react-icons/io5';
-import { RiInstagramFill } from 'react-icons/ri';
+import { FaPhoneAlt } from 'react-icons/fa';
+import { IoLocationSharp, IoMail } from 'react-icons/io5';
 import { MailResponseComponent } from './MailResponseComponent';
 import MarginContainer from '@/app/Containers/MarginContainer';
-import { div } from 'motion/react-client';
-import { SubHeaderComponent } from './SubHeaderComponent';
+import { MdLocalPhone } from 'react-icons/md';
 
 
 export const ContactComponent = () => {
 
   const contactInfo = {
-  address: {
-    label: "Address",
-    value: "123 Discovery Ave, Lagos, Nigeria",
-    color: "text-green-600",
-    iconSize: "35px"
-  },
-  phone: {
-    label: "Phone",
-    value: "11393829-2213",
-    color: "text-yellow-600",
-    iconSize: "30px"
-  },
-  email: {
-    label: "Email",
-    value: "discoverycare.au@mail.com",
-    color: "text-purple-600",
-    iconSize: "30px"
-  },
+    address: {
+      label: "Address",
+      value: "123 Discovery Ave, Lagos, Nigeria",
+      color: "bg-green-500",
+      icon: <IoLocationSharp className='size-[35px]' />,
+      iconSize: "35px"
+    },
+    phone: {
+      label: "Phone",
+      value: "11393829-2213",
+      color: "bg-yellow-500",
+      icon: <FaPhoneAlt className='size-[30px]' />,
+      iconSize: "30px"
+    },
+    email: {
+      label: "Email",
+      value: "discoverycare.au@mail.com",
+      color: "bg-purple-500",
+      icon: <IoMail className='size-[30px]' />,
+      iconSize: "30px"
+    },
 
-};
+  };
+
 
 
   const form: Ref<HTMLFormElement> = useRef(null);
@@ -89,159 +87,238 @@ export const ContactComponent = () => {
 
 
   return (
-    <div className="w-full h-full flex">
+    <div className="w-full lg:min-h-svh flex lg:pb-0 pb-32 bg-gradient-to-b from-white via-blue-200  to-blue-500">
       <MarginContainer>
-        <SubHeaderComponent headerValue='Contact Us' />
 
-        <div className='w-full flex gap-x-16'>
+        <div className='w-full lg:h-auto h-full flex lg:flex-row flex-col gap-16'>
 
-          <form
-            ref={form}
-            onSubmit={submitMessage}
-            className="w-[65%] flex flex-col justify-between gap-y-4">
-
-            <input name='message_type' defaultValue={"Contact"} className='hidden' />
-
-
-            <motion.div
+          <div className='lg:w-[55%] w-full h-full flex flex-col lg:justify-start justify-center gap-y-4'>
+            <motion.h4
               variants={animateFadeUp}
               initial={"offscreen"}
               whileInView={"onscreen"}
-              custom={0}
-              className='w-full flex gap-x-6'
-            >
-              <input
-                placeholder="Email" required type="email"
-                name="from_email" pattern=".*\S.*"
-                className='w-full text-sm px-4 py-3 outline-0 border border-gray-400 shadow'
-              />
+              custom={0.2}
+              className='flex gap-x-3 text-2xl font-bold text-blue-500 '>
 
+              <MdLocalPhone /> {"Contact Us"}
+            </motion.h4>
 
-              <input
-                required type="tel"
-                placeholder='Phone Number'
-                name="from_phone" pattern="\+[0-9]{1,3}[0-9]{10}"
-                className='w-full text-sm px-4 py-3 outline-0 border border-gray-400 shadow'
-              />
-            </motion.div>
-
-
-
-            <motion.div
+            <motion.h4 className='font-bold'
               variants={animateFadeUp}
               initial={"offscreen"}
               whileInView={"onscreen"}
-              custom={0}
-              className='w-full flex gap-x-6'
+              custom={0.2}
             >
-              <input
-                placeholder="Name" required type="text"
-                name="from_name" pattern=".*\S.*" title="Input cannot be empty or only contain spaces"
-                className='w-full text-sm px-4 py-3 outline-0 border border-gray-400 shadow'
-              />
-            </motion.div>
 
+              {"Have questions? don't hesitate to contact us"}
+            </motion.h4>
 
-
-            <motion.div
+            <motion.p
               variants={animateFadeUp}
               initial={"offscreen"}
               whileInView={"onscreen"}
-              custom={0.6}
+              custom={0.2}
             >
 
-
-              <textarea
-                value={messageValue}
-                onChange={(e) => setMessageValue(e.target.value)}
-                placeholder="Type Your Message Here" required
-                name="message" autoComplete='on' spellCheck="true"
-                className='w-full text-sm p-4 outline-0 border border-gray-400 shadow'
-              />
-
-            </motion.div>
+              {"We are passionate about transforming lives. Founded with a vision to make learning accessible to all, we believe in the power of knowledge to unlock opportunities and shape the future."}
+            </motion.p>
 
 
 
-            <motion.div
-              variants={animateFadeUp}
-              initial={"offscreen"}
-              whileInView={"onscreen"}
-              custom={0.6}
-              className='w-full'
-            >
-              <button
-                type='submit'
-                disabled={formProcessing}
-                onClick={() => { }}
-                className={`z-20 big-button text-white font-bold`}
-              >
+            <div className="w-full flex flex-col items-center justify-between gap-y-4">
 
-                <span className={`${interFont.className} capitalize`}>
-                  {formProcessing ? "Sending..." : "Send"}
-                </span>
-              </button>
+              <motion.div
+                variants={animateFromLeft}
+                initial={"offscreen"}
+                whileInView={"onscreen"}
+                custom={0.2}
 
-            </motion.div>
+                className={`${contactInfo.address.color} w-full flex flex-col justify-center items-center text-white rounded-lg p-4`}>
+
+                <div className='flex justify-center items-center'>
+
+                  {contactInfo.address.icon}
+
+                  <h3 className='text-2xl font-bold text-center p-4'>
+                    {contactInfo.address.label}
+                  </h3>
+                </div>
 
 
-            <MailResponseComponent mailDialog={mailDialog} setMailDialog={setMailDialog} />
-
-
-          </form>
-
-
-
-
-          <div className='w-[35%] h-full flex flex-col gap-y-6 justify-start'>
-
-            <div className='w-full flex items-center gap-x-4 text-green-600'>
-              <IoLocationSharp className='size-[35px]' />
-
-              <div className='flex flex-col'>
-                <h5>
-                  {contactInfo.address.label}
-                </h5>
-
-                <p>
-                  {contactInfo.address.value}
+                <p className='text-sm text-center'>
+                  {`${contactInfo.address.value.substring(0, 120)}`} {contactInfo.address.value.length > 120 && "..."}
                 </p>
-              </div>
-            </div>
+
+              </motion.div>
 
 
+              <motion.div 
+                variants={animateFromRight}
+                initial={"offscreen"}
+                whileInView={"onscreen"}
+                custom={0.4}
 
-            <div className='w-full flex items-center gap-x-4 text-yellow-600'>
-              <FaPhoneAlt className='size-[30px]' />
+                className={`${contactInfo.phone.color} w-full flex flex-col justify-center items-center text-white rounded-lg p-4`}>
+                
+                <div className='flex justify-center items-center'>
+                  {contactInfo.phone.icon}
 
-              <div className='flex flex-col'>
-                <h5>
-                  {contactInfo.phone.label}
-                </h5>
+                  <h3 className='text-2xl font-bold text-center p-4'>
+                    {contactInfo.phone.label}
+                  </h3>
+                </div>
 
-                <p>
-                  {contactInfo.phone.value}
+
+                <p className='text-sm text-center'>
+                  {`${contactInfo.phone.value.substring(0, 120)}`} {contactInfo.phone.value.length > 120 && "..."}
                 </p>
-              </div>
-            </div>
+
+              </motion.div>
 
 
+              <motion.div
+                variants={animateFromLeft}
+                initial={"offscreen"}
+                whileInView={"onscreen"}
+                custom={0.6}
+                className={`${contactInfo.email.color} w-full flex flex-col justify-center items-center text-white rounded-lg p-4`}>
 
-            <div className='w-full flex items-center gap-x-4 text-purple-600'>
-              <IoMail className='size-[30px]' />
+                <div className='flex justify-center items-center'>
+                  {contactInfo.email.icon}
 
-              <div className='flex flex-col'>
-                <h5>
-                  {contactInfo.email.label}
-                </h5>
+                  <h3 className='text-2xl font-bold text-center p-4'>
+                    {contactInfo.email.label}
+                  </h3>
+                </div>
 
-                <p>
-                  {contactInfo.email.value}
+
+                <p className='text-sm text-center'>
+                  {`${contactInfo.email.value.substring(0, 120)}`} {contactInfo.email.value.length > 120 && "..."}
                 </p>
-              </div>
+
+              </motion.div>
+
+
             </div>
 
           </div>
+
+
+
+
+
+          <motion.div
+            variants={animateFadeUp}
+            initial={"offscreen"}
+            whileInView={"onscreen"}
+            custom={0.2}
+            className='lg:w-[45%] w-full lg:h-auto h-full flex p-6 bg-white rounded-lg overflow-hidden shadow-lg shadow-gray-500'>
+
+            <form
+              ref={form}
+              onSubmit={submitMessage}
+              className="w-full flex flex-col justify-between gap-y-4 p-6 bg-blue-100 rounded-lg overflow-hidden">
+
+              <h5 className='text-2xl font-bold text-blue-500'>
+                {"Get in touch"}
+              </h5>
+              <input name='message_type' defaultValue={"Contact"} className='hidden' />
+
+              <motion.div
+                variants={animateFadeUp}
+                initial={"offscreen"}
+                whileInView={"onscreen"}
+                custom={0.2}
+                className='w-full flex gap-x-6'
+              >
+                <input
+                  placeholder="Name" required type="text"
+                  name="from_name" pattern=".*\S.*" title="Input cannot be empty or only contain spaces"
+                  className='w-full text-sm px-4 py-4 outline-0 border-gray-400 shadow bg-white rounded-lg'
+                />
+              </motion.div>
+
+
+              <motion.div
+                variants={animateFadeUp}
+                initial={"offscreen"}
+                whileInView={"onscreen"}
+                custom={0.3}
+                className='w-full flex gap-x-6'
+              >
+                <input
+                  placeholder="Email" required type="email"
+                  name="from_email" pattern=".*\S.*"
+                  className='w-full text-sm px-4 py-4 outline-0 border-gray-400 shadow bg-white rounded-lg'
+                />
+              </motion.div>
+
+
+              <motion.div
+                variants={animateFadeUp}
+                initial={"offscreen"}
+                whileInView={"onscreen"}
+                custom={0.4}
+                className='w-full flex gap-x-6'
+              >
+                <input
+                  required type="tel"
+                  placeholder='Phone Number'
+                  name="from_phone" pattern="\+[0-9]{1,3}[0-9]{10}"
+                  className='w-full text-sm px-4 py-4 outline-0 border-gray-400 shadow bg-white rounded-lg'
+                />
+              </motion.div>
+
+
+              <motion.div
+                variants={animateFadeUp}
+                initial={"offscreen"}
+                whileInView={"onscreen"}
+                custom={0.5}
+              >
+
+
+                <textarea
+                  value={messageValue}
+                  onChange={(e) => setMessageValue(e.target.value)}
+                  placeholder="Type Your Message Here" required
+                  name="message" autoComplete='on' spellCheck="true"
+                  className='w-full text-sm px-4 py-6 outline-0 border-gray-400 shadow bg-white rounded-lg'
+                />
+
+              </motion.div>
+
+
+
+              <motion.div
+                // variants={animateFadeUp}
+                // initial={"offscreen"}
+                // whileInView={"onscreen"}
+                // custom={0.6}
+                className='w-full'
+              >
+                <button
+                  type='submit'
+                  disabled={formProcessing}
+                  onClick={() => { }}
+                  className={`z-20 big-button text-white font-bold`}
+                >
+
+                  <span className={`${interFont.className} capitalize`}>
+                    {formProcessing ? "Sending..." : "Send"}
+                  </span>
+                </button>
+
+              </motion.div>
+
+
+              <MailResponseComponent mailDialog={mailDialog} setMailDialog={setMailDialog} />
+
+
+            </form>
+
+          </motion.div>
+
 
         </div>
 
