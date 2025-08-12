@@ -78,7 +78,7 @@ export const FooterComponent = () => {
 
 
 
-                    <motion.h5
+                    {/* <motion.h5
                         variants={animateFadeUp}
                         initial={"offscreen"}
                         whileInView={"onscreen"}
@@ -86,7 +86,7 @@ export const FooterComponent = () => {
                         className='flex gap-x-2 lg:mt-0 mt-2'>
 
                         {"NDIS: "} <span className='italic'>{"29402742923"}</span>
-                    </motion.h5>
+                    </motion.h5> */}
 
 
 
@@ -182,7 +182,7 @@ export const FooterComponent = () => {
                         <li className='flex justify-center items-center rounded-full overflow-hidden size-[50px] bg-white px-[2px] pb-[6px]'>
                             <LogoComponent />
                         </li>
-                        {"Discovery-Care. All rights reserved."}
+                        {"Discovery-Care Group. All rights reserved."}
                     </div>
                 </motion.h6>
 

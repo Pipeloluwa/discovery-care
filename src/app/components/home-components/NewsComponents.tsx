@@ -19,7 +19,7 @@ const newsData: INewsData[] = [
 
     {
         id: 2,
-        title: "The importance of mental health",
+        title: "Importance of mental health",
         date: "July 20, 2025",
         image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         content: "Mental health is just as important as physical health, and it’s essential to take care of both. Here are some tips for maintaining good mental health: Practice self-care, stay connected with loved ones, and seek professional help if needed."

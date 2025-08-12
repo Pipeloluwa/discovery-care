@@ -121,7 +121,7 @@ const NavBarComponent = () => {
                         </li>
 
                         <p>
-                            {"Discovery-Care"}
+                            {"Discovery-Care Group"}
                         </p>
                     </Link>
 

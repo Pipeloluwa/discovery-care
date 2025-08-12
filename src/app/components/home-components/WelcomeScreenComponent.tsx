@@ -31,19 +31,32 @@ const WelcomeScreenComponent = () => {
         />
       </div>
 
-      <motion.img
+      {/* <motion.img
         animate={{ y: [0, 36, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         src={"/images/graphics/g1.png"}
         alt='graphics image'
         className='xl:w-[400px] lg:w-[300px] md:w-[250px] w-[180px] absolute xl:left-20 lg:left-10 left-0 md:bottom-0 bottom-10'
-      />
+      /> */}
 
 
 
-      <motion.img
+      {/* <motion.img
         animate={{ y: [0, -36, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        src={"/images/graphics/g1.png"}
+        alt='graphics image'
+        className='xl:w-[200px] lg:w-[150px] md:w-[130px] w-[100px] absolute xl:right-60 lg:right-40 md:right-20 right-0 top-35'
+      /> */}
+
+
+      <img
+        src={"/images/graphics/g1.png"}
+        alt='graphics image'
+        className='xl:w-[400px] lg:w-[300px] md:w-[250px] w-[180px] absolute xl:left-20 lg:left-10 left-0 md:bottom-0 bottom-10'
+      />
+
+      <img
         src={"/images/graphics/g1.png"}
         alt='graphics image'
         className='xl:w-[200px] lg:w-[150px] md:w-[130px] w-[100px] absolute xl:right-60 lg:right-40 md:right-20 right-0 top-35'
@@ -53,7 +66,7 @@ const WelcomeScreenComponent = () => {
       <div className='z-20 w-full h-full flex justify-center items-center absolute left-0 right-0 top-0 bottom-0 '>
         <MarginContainer>
           <h1 className="lg:text-7xl md:text-6xl text-5xl text-center font-bold yellow-color text-shadow-2xs text-shadow-gray-600">
-            
+
             <span className='flex flex-wrap justify-center items-center tracking-wider'>
 
               <div className='flex justify-center items-center gap-x-[2px]'>
@@ -101,21 +114,21 @@ const WelcomeScreenComponent = () => {
               </div>
             </span>
 
-                <div className='flex justify-center gap-x-[2px]'>
-                {
-                  "Care".split("").map((char, index) =>
-                    <motion.p
-                      key={`Welcome to${index}`}
-                      variants={animateGradualSpacing}
-                      initial={"offscreen"}
-                      whileInView={"onscreen"}
-                      custom={index}>
+            <div className='flex justify-center gap-x-[2px] whitespace-pre-wrap'>
+              {
+                "Care Group".split("").map((char, index) =>
+                  <motion.p
+                    key={`Welcome to${index}`}
+                    variants={animateGradualSpacing}
+                    initial={"offscreen"}
+                    whileInView={"onscreen"}
+                    custom={index}>
 
-                      {char}
-                    </motion.p>
-                  )
-                }
-              </div>
+                    {char}
+                  </motion.p>
+                )
+              }
+            </div>
 
             {/* <div className='flex gap-x-[2px] justify-center'>
               {
@@ -162,4 +175,4 @@ const WelcomeScreenComponent = () => {
 
 
 
-export default dynamic(() => Promise.resolve(WelcomeScreenComponent), {loading: () => <WelcomeSuspense />, ssr: false });
+export default dynamic(() => Promise.resolve(WelcomeScreenComponent), { loading: () => <WelcomeSuspense />, ssr: false });

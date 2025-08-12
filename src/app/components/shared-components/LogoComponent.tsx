@@ -1,6 +1,4 @@
-import { rootUrl } from '@/app/variables/sharedVariables'
 import Image from 'next/image'
-import Link from 'next/link'
 
 const LogoComponent = () => {
   return (

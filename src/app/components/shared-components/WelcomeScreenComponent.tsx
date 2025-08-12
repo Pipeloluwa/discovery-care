@@ -9,7 +9,7 @@ export const WelcomeScreenComponent: React.FC<IWelomeScreen> = ({ title }) => {
   return (
     <div className='w-full md:h-[400px] h-[300px] relative flex justify-center items-center bg-gradient-to-b from-white to-blue-500'>
 
-      <motion.img
+      {/* <motion.img
         animate={{ y: [0, 36, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         src={"/images/graphics/g1.png"}
@@ -20,6 +20,19 @@ export const WelcomeScreenComponent: React.FC<IWelomeScreen> = ({ title }) => {
       <motion.img
         animate={{ y: [0, -36, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        src={"/images/graphics/g1.png"}
+        alt='graphics image'
+        className='lg:w-[200px] md:w-[150px] w-[100px] absolute xl:right-50 md:right-30 sm:right-[6rem] right-0 top-35'
+      /> */}
+
+
+      <img
+        src={"/images/graphics/g1.png"}
+        alt='graphics image'
+        className='lg:w-[300px] md:w-[250px] w-[200px] absolute xl:left-20 md:left-8 sm:left-5 -left-10 bottom-0'
+      />
+
+      <img
         src={"/images/graphics/g1.png"}
         alt='graphics image'
         className='lg:w-[200px] md:w-[150px] w-[100px] absolute xl:right-50 md:right-30 sm:right-[6rem] right-0 top-35'
