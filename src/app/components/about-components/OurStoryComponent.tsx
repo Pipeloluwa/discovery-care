@@ -10,7 +10,7 @@ export const OurStoryComponent = () => {
   const ourStoryData = [
     {
       title: "Our Story",
-      description: "At DiscoveryCare Group, we are passionate about helping people with disabilities live meaningful and independent lives. Founded with a vision to create a safe and supportive environment for all, we provide services that reflect our belief in dignity, respect, and empowerment.",
+      description: "At Discovery Care Group, we are passionate about helping people with disabilities live meaningful and independent lives. Founded with a vision to create a safe and supportive environment for all, we provide services that reflect our belief in dignity, respect, and empowerment.",
       color: "text-yellow-500"
     },
 

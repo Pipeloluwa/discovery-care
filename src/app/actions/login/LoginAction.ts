@@ -1,5 +1,5 @@
 "use server";
-import { createSession } from "@/app/api/core/application/features/utilities/authentication/Session";
+import { createSession, deleteSession } from "@/app/api/core/application/features/utilities/authentication/Session";
 import { loginSchema } from "@/app/api/core/application/features/Validators/ZodValidators/Admin/LoginValidations";
 import { redirect } from "next/navigation";
 import { z } from "zod";
@@ -19,4 +19,7 @@ export async function login(previousState: any, formData: FormData) {
     
 }
 
-export async function logout() {}
+export async function logout() {
+    await deleteSession();
+    redirect("/admin/login");
+}

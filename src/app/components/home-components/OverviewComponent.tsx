@@ -10,7 +10,7 @@ import { motion } from 'motion/react';
 
 export const OverviewComponent = () => {
     
-    const subHeading = "At DiscoveryCare Group, we deliver personalized NDIS support services designed to empower individuals to live independently, reach their goals, and flourish within their communities. Our high-quality, person-centered approach ensures that support is tailored to your unique needs and aspirations, helping you achieve a fulfilling and autonomous life.";
+    const subHeading = "At Discovery Care Group, we deliver personalized NDIS support services designed to empower individuals to live independently, reach their goals, and flourish within their communities. Our high-quality, person-centered approach ensures that support is tailored to your unique needs and aspirations, helping you achieve a fulfilling and autonomous life.";
     const overviewData = [
         {
             "title": "Tailored",

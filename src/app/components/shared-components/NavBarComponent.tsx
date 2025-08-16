@@ -114,7 +114,7 @@ const NavBarComponent = () => {
 
             <div className=" absolute left-0 right-0 flex w-[90%] gap-x-4 mx-auto justify-between items-center text-[14px]">
 
-                <ul className='lg:w-[30%] w-[500px] flex justify-start items-center'>
+                <ul className='lg:w-[30%] w-full flex justify-start items-center'>
                     <Link href={`./`} className='w-full flex justify-betrween items-center gap-x-2'>
                         <li className='flex justify-center items-center rounded-full overflow-hidden size-[65px] bg-white px-[2px] pb-2'>
                             <LogoComponent />
@@ -148,7 +148,7 @@ const NavBarComponent = () => {
 
 
 
-                <ul className='lg:hidden flex w-full justify-end'>
+                <ul className='lg:hidden flex justify-end'>
                     {
                         !openDrawer
                         && <TiThMenu onClick={() => { openDrawer_() }} className="cursor-pointer text-white size-[45px]" />
