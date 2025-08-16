@@ -28,7 +28,7 @@ export const IntroductionComponent = () => {
                     custom={0.8}
                 >
 
-                    {"At DiscoveryCare Group, we provide a wide range of NDIS services to support participants in every aspect of daily life. Our services are designed to build capacity, promote independence, and help you achieve your NDIS goals."}
+                    {"At Discovery Care Group, we provide a wide range of NDIS services to support participants in every aspect of daily life. Our services are designed to build capacity, promote independence, and help you achieve your NDIS goals."}
                 </motion.p>
             </div>
         </MarginContainer>
