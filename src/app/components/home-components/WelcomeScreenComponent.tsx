@@ -19,7 +19,7 @@ export const WelcomeScreenComponent = () => {
 
 
   return (
-    imageBgLoadState
+    !imageBgLoadState
     ? <WelcomeSuspense />
 
     : 
