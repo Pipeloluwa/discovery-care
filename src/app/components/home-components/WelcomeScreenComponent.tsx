@@ -3,7 +3,7 @@ import { animateFadeUp, animateFromLeft, animateGradualSpacing } from '@/app/ani
 import MarginContainer from '@/app/Containers/MarginContainer'
 import { motion } from 'motion/react'
 import Link from 'next/link'
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { WelcomeSuspense } from '../suspense-components/WelcomeSuspense'
 
 export const WelcomeScreenComponent = () => {
@@ -16,68 +16,123 @@ export const WelcomeScreenComponent = () => {
 
   const [imageBgLoadState, setImageBGLoadState]= useState<boolean>(false);
 
+ const imgBgRef = useRef<HTMLImageElement>(null);
 
+  useEffect(() => {
+    // Check if the image is already complete on mount
+    if (imgBgRef.current && imgBgRef.current.complete) {
+      setImageBGLoadState(true);
+    }
+  }, []);
 
   return (
-    !imageBgLoadState
-    ? <WelcomeSuspense />
+    <>
+      {
+        !imageBgLoadState
+        && <WelcomeSuspense />
+      }
+      
+      <div className={`${imageBgLoadState ? "opacity-100" : "opacity-0"} w-full h-svh relative flex justify-center items-center`}>
 
-    : 
-    <div className='w-full h-svh relative flex justify-center items-center'>
+        <div className='w-full h-full flex absolute left-0 right-0 top-0 bottom-0 overflow-hidden'>
+          <motion.img
+            ref={imgBgRef}
+            onLoad={() => setImageBGLoadState(true)}
 
-      <div className='w-full h-full flex absolute left-0 right-0 top-0 bottom-0 overflow-hidden'>
-        <motion.img
-          onLoad={() => setImageBGLoadState(true)}
+            animate={{ scale: [1, 1.4, 1] }}
+            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+            src={welcomeScreenData.image}
+            alt="welcome-background-image"
+            className='w-full h-full flex object-cover'
+          />
+        </div>
 
-          animate={{ scale: [1, 1.4, 1] }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          src={welcomeScreenData.image}
-          alt="welcome-background-image"
-          className='w-full h-full flex object-cover'
+        {/* <motion.img
+          animate={{ y: [0, 36, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          src={"/images/graphics/g1.png"}
+          alt='graphics image'
+          className='xl:w-[400px] lg:w-[300px] md:w-[250px] w-[180px] absolute xl:left-20 lg:left-10 left-0 md:bottom-0 bottom-10'
+        /> */}
+
+
+
+        {/* <motion.img
+          animate={{ y: [0, -36, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          src={"/images/graphics/g1.png"}
+          alt='graphics image'
+          className='xl:w-[200px] lg:w-[150px] md:w-[130px] w-[100px] absolute xl:right-60 lg:right-40 md:right-20 right-0 top-35'
+        /> */}
+
+
+        <img
+          src={"/images/graphics/g1.png"}
+          alt='graphics image'
+          className='xl:w-[400px] lg:w-[300px] md:w-[250px] w-[180px] absolute xl:left-20 lg:left-10 left-0 md:bottom-0 bottom-10'
         />
-      </div>
 
-      {/* <motion.img
-        animate={{ y: [0, 36, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        src={"/images/graphics/g1.png"}
-        alt='graphics image'
-        className='xl:w-[400px] lg:w-[300px] md:w-[250px] w-[180px] absolute xl:left-20 lg:left-10 left-0 md:bottom-0 bottom-10'
-      /> */}
+        <img
+          src={"/images/graphics/g1.png"}
+          alt='graphics image'
+          className='xl:w-[200px] lg:w-[150px] md:w-[130px] w-[100px] absolute xl:right-60 lg:right-40 md:right-20 right-0 top-35'
+        />
 
 
+        <div className='z-20 w-full h-full flex justify-center items-center absolute left-0 right-0 top-0 bottom-0 '>
+          <MarginContainer>
+            <h1 className="lg:text-7xl md:text-6xl text-5xl text-center font-bold yellow-color text-shadow-2xs text-shadow-gray-600">
 
-      {/* <motion.img
-        animate={{ y: [0, -36, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        src={"/images/graphics/g1.png"}
-        alt='graphics image'
-        className='xl:w-[200px] lg:w-[150px] md:w-[130px] w-[100px] absolute xl:right-60 lg:right-40 md:right-20 right-0 top-35'
-      /> */}
+              <span className='flex flex-wrap justify-center items-center tracking-wider'>
 
+                <div className='flex justify-center items-center gap-x-[2px]'>
+                  {
+                    "Disc".split("").map((char, index) =>
+                      <motion.p
+                        key={`Welcome to${index}`}
+                        variants={animateGradualSpacing}
+                        initial={"offscreen"}
+                        whileInView={"onscreen"}
+                        custom={index}>
 
-      <img
-        src={"/images/graphics/g1.png"}
-        alt='graphics image'
-        className='xl:w-[400px] lg:w-[300px] md:w-[250px] w-[180px] absolute xl:left-20 lg:left-10 left-0 md:bottom-0 bottom-10'
-      />
+                        {char}
+                      </motion.p>
+                    )
+                  }
+                </div>
 
-      <img
-        src={"/images/graphics/g1.png"}
-        alt='graphics image'
-        className='xl:w-[200px] lg:w-[150px] md:w-[130px] w-[100px] absolute xl:right-60 lg:right-40 md:right-20 right-0 top-35'
-      />
+                <motion.div
+                  variants={animateFromLeft}
+                  initial={"offscreen"}
+                  whileInView={"onscreen"}
+                >
+                  <motion.img
+                    animate={{ rotate: [360, 0] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                    className='sm:mt-0 lg:h-[55px] md:h-[45px] sm:h-[35px] h-[30px]' src="/images/graphics/g2_.png" alt="letter o"
+                  />
+                </motion.div>
 
+                <div className='flex gap-x-[2px]'>
+                  {
+                    "very".split("").map((char, index) =>
+                      <motion.p
+                        key={`Welcome to${index}`}
+                        variants={animateGradualSpacing}
+                        initial={"offscreen"}
+                        whileInView={"onscreen"}
+                        custom={index}>
 
-      <div className='z-20 w-full h-full flex justify-center items-center absolute left-0 right-0 top-0 bottom-0 '>
-        <MarginContainer>
-          <h1 className="lg:text-7xl md:text-6xl text-5xl text-center font-bold yellow-color text-shadow-2xs text-shadow-gray-600">
+                        {char}
+                      </motion.p>
+                    )
+                  }
+                </div>
+              </span>
 
-            <span className='flex flex-wrap justify-center items-center tracking-wider'>
-
-              <div className='flex justify-center items-center gap-x-[2px]'>
+              <div className='flex justify-center gap-x-[2px] whitespace-pre-wrap'>
                 {
-                  "Disc".split("").map((char, index) =>
+                  "Care Group".split("").map((char, index) =>
                     <motion.p
                       key={`Welcome to${index}`}
                       variants={animateGradualSpacing}
@@ -91,21 +146,9 @@ export const WelcomeScreenComponent = () => {
                 }
               </div>
 
-              <motion.div
-                variants={animateFromLeft}
-                initial={"offscreen"}
-                whileInView={"onscreen"}
-              >
-                <motion.img
-                  animate={{ rotate: [360, 0] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                  className='sm:mt-0 lg:h-[55px] md:h-[45px] sm:h-[35px] h-[30px]' src="/images/graphics/g2_.png" alt="letter o"
-                />
-              </motion.div>
-
-              <div className='flex gap-x-[2px]'>
+              {/* <div className='flex gap-x-[2px] justify-center'>
                 {
-                  "very".split("").map((char, index) =>
+                  welcomeScreenData.bigTitle.substring(15, welcomeScreenData.bigTitle.length).split("").map((char, index) =>
                     <motion.p
                       key={`Welcome to${index}`}
                       variants={animateGradualSpacing}
@@ -117,65 +160,33 @@ export const WelcomeScreenComponent = () => {
                     </motion.p>
                   )
                 }
-              </div>
-            </span>
+              </div> */}
+            </h1>
 
-            <div className='flex justify-center gap-x-[2px] whitespace-pre-wrap'>
-              {
-                "Care Group".split("").map((char, index) =>
-                  <motion.p
-                    key={`Welcome to${index}`}
-                    variants={animateGradualSpacing}
-                    initial={"offscreen"}
-                    whileInView={"onscreen"}
-                    custom={index}>
+            <motion.p
+              variants={animateFadeUp}
+              initial={"offscreen"}
+              whileInView={"onscreen"}
+              className="animated-background lg:w-[65%] w-full mx-auto text-center tracking-widest lg:text-xl md:text-lg text-sm text-white italic font-bold p-4 rounded-lg lg:mt-4">
 
-                    {char}
-                  </motion.p>
-                )
-              }
-            </div>
+              {welcomeScreenData.caption}
+            </motion.p>
 
-            {/* <div className='flex gap-x-[2px] justify-center'>
-              {
-                welcomeScreenData.bigTitle.substring(15, welcomeScreenData.bigTitle.length).split("").map((char, index) =>
-                  <motion.p
-                    key={`Welcome to${index}`}
-                    variants={animateGradualSpacing}
-                    initial={"offscreen"}
-                    whileInView={"onscreen"}
-                    custom={index}>
+            <motion.div
+              variants={animateFadeUp}
+              initial={"offscreen"}
+              whileInView={"onscreen"}
+            >
+              <Link href={"/services"} className="big-button font-bold text-white">
+                {welcomeScreenData.buttonText}
+              </Link>
+            </motion.div>
 
-                    {char}
-                  </motion.p>
-                )
-              }
-            </div> */}
-          </h1>
+          </MarginContainer>
+        </div>
 
-          <motion.p
-            variants={animateFadeUp}
-            initial={"offscreen"}
-            whileInView={"onscreen"}
-            className="animated-background lg:w-[65%] w-full mx-auto text-center tracking-widest lg:text-xl md:text-lg text-sm text-white italic font-bold p-4 rounded-lg lg:mt-4">
-
-            {welcomeScreenData.caption}
-          </motion.p>
-
-          <motion.div
-            variants={animateFadeUp}
-            initial={"offscreen"}
-            whileInView={"onscreen"}
-          >
-            <Link href={"/services"} className="big-button font-bold text-white">
-              {welcomeScreenData.buttonText}
-            </Link>
-          </motion.div>
-
-        </MarginContainer>
       </div>
-
-    </div>
+    </>
   )
 }
 
