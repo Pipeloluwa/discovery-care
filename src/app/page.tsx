@@ -11,11 +11,11 @@ import { ContactComponent } from "./components/shared-components/ContactComponen
 import { MapComponent } from "./components/shared-components/MapComponent";
 import { useEffect } from "react";
 import { setNavValue } from "./state_management/reducers/client-reducers/navValue";
-import WelcomeScreenComponent from "./components/home-components/WelcomeScreenComponent";
+import {WelcomeScreenComponent} from "./components/home-components/WelcomeScreenComponent";
 
 export default function Home() {
     const dispatch= useDispatch();
-    
+    dispatch(setNavValue({ action: "Home" }));
     useEffect(() => {
         dispatch(setNavValue({ action: "Home" }));
     }, []);

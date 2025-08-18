@@ -9,7 +9,6 @@ import { setNavValue } from "../state_management/reducers/client-reducers/navVal
 
 export default function AboutPage() {
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(setNavValue({ action: "About" }));
   }, []);

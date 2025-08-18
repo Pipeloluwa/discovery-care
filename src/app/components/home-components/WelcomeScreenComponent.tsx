@@ -1,13 +1,12 @@
-"use client"
-import { animateFadeDown, animateFadeUp, animateFromLeft, animateGradualSpacing } from '@/app/animation/animationVariants'
+"use client";
+import { animateFadeUp, animateFromLeft, animateGradualSpacing } from '@/app/animation/animationVariants';
 import MarginContainer from '@/app/Containers/MarginContainer'
 import { motion } from 'motion/react'
 import Link from 'next/link'
-import React from 'react'
+import { useState } from 'react';
 import { WelcomeSuspense } from '../suspense-components/WelcomeSuspense'
-import dynamic from 'next/dynamic'
 
-const WelcomeScreenComponent = () => {
+export const WelcomeScreenComponent = () => {
   const welcomeScreenData = {
     "bigTitle": "Discovery Care",
     "caption": "Empowering You to Live Your Best Life.",
@@ -15,14 +14,21 @@ const WelcomeScreenComponent = () => {
     "image": "/images/pictures/welcome-bg_.webp"
   }
 
+  const [imageBgLoadState, setImageBGLoadState]= useState<boolean>(false);
+
 
 
   return (
+    imageBgLoadState
+    ? <WelcomeSuspense />
 
+    : 
     <div className='w-full h-svh relative flex justify-center items-center'>
 
       <div className='w-full h-full flex absolute left-0 right-0 top-0 bottom-0 overflow-hidden'>
         <motion.img
+          onLoad={() => setImageBGLoadState(true)}
+
           animate={{ scale: [1, 1.4, 1] }}
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
           src={welcomeScreenData.image}
@@ -174,5 +180,3 @@ const WelcomeScreenComponent = () => {
 }
 
 
-
-export default dynamic(() => Promise.resolve(WelcomeScreenComponent), { loading: () => <WelcomeSuspense />, ssr: false });
