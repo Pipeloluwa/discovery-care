@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 import React from 'react'
 
 export const MapComponent = () => {
-  const mapAddress = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62859639.18089381!2d78.36738849999999!3d-15.927506799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae41a06d3b9f%3A0x6f1893431a2a118c!2sO%20Bar%20and%20Dining!5e0!3m2!1sen!2sng!4v1754403180776!5m2!1sen!2sng";
+  const mapAddress = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3393.537134169436!2d116.02214017554729!3d-31.72853661141075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2a32b569d5ed70af%3A0x3037304cec0b9345!2sEllenbrook%20Rd%2C%20Western%20Australia%2C%20Australia!5e0!3m2!1sen!2sng!4v1755601092275!5m2!1sen!2sng";
 
   return (
     <motion.div
