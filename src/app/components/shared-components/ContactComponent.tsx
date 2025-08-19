@@ -17,21 +17,21 @@ export const ContactComponent = () => {
   const contactInfo = {
     address: {
       label: "Address",
-      value: "123 Discovery Ave, Lagos, Nigeria",
+      value: "PO Box 2053, ELLENBROOK WA 6069, Australia",
       color: "bg-green-500",
       icon: <IoLocationSharp className='size-[35px]' />,
       iconSize: "35px"
     },
     phone: {
       label: "Phone",
-      value: "11393829-2213",
+      value: "0400 741 849",
       color: "bg-yellow-500",
       icon: <FaPhoneAlt className='size-[30px]' />,
       iconSize: "30px"
     },
     email: {
       label: "Email",
-      value: "discoverycare.au@mail.com",
+      value: "admin@discoverycareservices.com.au",
       color: "bg-purple-500",
       icon: <IoMail className='size-[30px]' />,
       iconSize: "30px"
