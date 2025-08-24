@@ -322,9 +322,9 @@ export const ContactComponent = () => {
 
       </MarginContainer>
 
-      <>
+      <div className='size-[500px] mx-auto'>
         <MailResponseComponent mailDialog={mailDialog} setMailDialog={setMailDialog} />
-      </>
+      </div>
     </div>
 
   )
