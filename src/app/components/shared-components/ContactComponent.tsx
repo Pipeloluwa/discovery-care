@@ -73,11 +73,9 @@ export const ContactComponent = () => {
           },
           (error) => {
             setMailDialog("Sorry, could not send information, something went wrong");
-            console.log('FAILED...', error);
           },
         ).catch((error) => {
           setMailDialog("Sorry, could not send information, something went wrong");
-          console.log(error);
         });
 
       setFormProcessing(false);
