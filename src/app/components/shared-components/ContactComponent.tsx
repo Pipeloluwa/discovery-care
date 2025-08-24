@@ -248,7 +248,8 @@ export const ContactComponent = () => {
               >
                 <input
                   placeholder="Email" required type="email"
-                  name="from_email" pattern=".*\S.*"
+                  name="from_email" pattern='^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+                  title="Input cannot be empty or only contain spaces"
                   className='w-full text-sm px-4 py-4 outline-0 border-gray-400 shadow bg-white rounded-lg'
                 />
               </motion.div>
@@ -264,7 +265,8 @@ export const ContactComponent = () => {
                 <input
                   required type="tel"
                   placeholder='Phone Number'
-                  name="from_phone" pattern="\+[0-9]{1,3}[0-9]{10}"
+                  name="from_phone" pattern=".{6,}"
+                  title='Phone number should be at least 6 characters long'
                   className='w-full text-sm px-4 py-4 outline-0 border-gray-400 shadow bg-white rounded-lg'
                 />
               </motion.div>
