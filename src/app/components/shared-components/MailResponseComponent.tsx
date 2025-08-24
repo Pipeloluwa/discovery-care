@@ -12,7 +12,7 @@ export const MailResponseComponent:React.FC<IMailResponseComponent> = ({mailDial
             open={mailDialog !== ""}
             size='sm'
             handler={() => { setMailDialog("") }}
-            className='bg-white/70'
+            className='bg-white/70 w-[500px] h-[500px] mx-auto self-center outline-0 shadow-xl shadow-gray-300 py-[10px]'
              onResize={() => {}} onResizeCapture={() => {}} placeholder={""} onPointerEnterCapture={() => { }} onPointerLeaveCapture={() => { }}
         >
 

@@ -150,14 +150,14 @@ export const ContactComponent = () => {
               </motion.div>
 
 
-              <motion.div
+              <motion.div 
                 variants={animateFromRight}
                 initial={"offscreen"}
                 whileInView={"onscreen"}
                 custom={0.4}
 
                 className={`${contactInfo.phone.color} w-full flex flex-col justify-center items-center text-white rounded-lg p-4`}>
-
+                
                 <div className='flex justify-center items-center'>
                   {contactInfo.phone.icon}
 
@@ -322,9 +322,9 @@ export const ContactComponent = () => {
 
       </MarginContainer>
 
-      <div className='size-[500px] mx-auto'>
+
         <MailResponseComponent mailDialog={mailDialog} setMailDialog={setMailDialog} />
-      </div>
+
     </div>
 
   )
