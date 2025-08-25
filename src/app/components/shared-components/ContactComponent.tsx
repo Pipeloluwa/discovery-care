@@ -222,7 +222,7 @@ export const ContactComponent = () => {
               <h5 className='text-2xl font-bold text-blue-500'>
                 {"Get in touch"}
               </h5>
-              <input name='message_type' defaultValue={"Contact"} className='hidden' />
+              <input name='title' defaultValue={"Discovery Care Group Contact"} className='hidden' />
 
               <motion.div
                 variants={animateFadeUp}
@@ -233,7 +233,7 @@ export const ContactComponent = () => {
               >
                 <input
                   placeholder="Name" required type="text"
-                  name="from_name" pattern=".*\S.*" title="Input cannot be empty or only contain spaces"
+                  name="name" pattern=".*\S.*" title="Input cannot be empty or only contain spaces"
                   className='w-full text-sm px-4 py-4 outline-0 border-gray-400 shadow bg-white rounded-lg'
                 />
               </motion.div>
@@ -248,7 +248,7 @@ export const ContactComponent = () => {
               >
                 <input
                   placeholder="Email" required type="email"
-                  name="from_email" pattern='^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+                  name="email" pattern='^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
                   title="Input cannot be empty or only contain spaces"
                   className='w-full text-sm px-4 py-4 outline-0 border-gray-400 shadow bg-white rounded-lg'
                 />
@@ -265,7 +265,7 @@ export const ContactComponent = () => {
                 <input
                   required type="tel"
                   placeholder='Phone Number'
-                  name="from_phone" pattern=".{6,}"
+                  name="phone" pattern=".{6,}"
                   title='Phone number should be at least 6 characters long'
                   className='w-full text-sm px-4 py-4 outline-0 border-gray-400 shadow bg-white rounded-lg'
                 />
