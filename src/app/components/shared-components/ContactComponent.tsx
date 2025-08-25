@@ -223,6 +223,7 @@ export const ContactComponent = () => {
                 {"Get in touch"}
               </h5>
               <input name='title' defaultValue={"Discovery Care Group Contact"} className='hidden' />
+              <input name='time' defaultValue={`${(new Date).toUTCString()} UTC`} className='hidden' />
 
               <motion.div
                 variants={animateFadeUp}
