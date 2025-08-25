@@ -12,7 +12,7 @@ export const MailResponseComponent:React.FC<IMailResponseComponent> = ({mailDial
             open={mailDialog !== ""}
             size='sm'
             handler={() => { setMailDialog("") }}
-            className='bg-white/70 w-[500px] h-[500px] mx-auto self-center outline-0 shadow-xl shadow-gray-300 py-[10px]'
+            className='bg-white/70 w-[70%] h-[40%] mx-auto self-center flex justify-center items-center outline-0 shadow-xl shadow-gray-500 py-[10px]'
              onResize={() => {}} onResizeCapture={() => {}} placeholder={""} onPointerEnterCapture={() => { }} onPointerLeaveCapture={() => { }}
         >
 
@@ -20,9 +20,9 @@ export const MailResponseComponent:React.FC<IMailResponseComponent> = ({mailDial
                 <div className='flex flex-col items-center justify-center'>
                     {
                         mailDialog !== "Successful"
-                            ? <MdCancel className='size-[100px] text-black' />
+                            ? <MdCancel className='size-[50px] text-red-500' />
 
-                            : <MdOutlineDone className='size-[100px] text-blue-800' />
+                            : <MdOutlineDone className='size-[50px] text-blue-800' />
                     }
 
 

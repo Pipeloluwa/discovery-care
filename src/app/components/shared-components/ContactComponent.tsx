@@ -73,9 +73,11 @@ export const ContactComponent = () => {
           },
           (error) => {
             setMailDialog("Sorry, could not send information, something went wrong");
+            console.log(error);
           },
         ).catch((error) => {
           setMailDialog("Sorry, could not send information, something went wrong");
+          console.log(error);
         });
 
       setFormProcessing(false);
@@ -301,7 +303,7 @@ export const ContactComponent = () => {
                   type='submit'
                   disabled={formProcessing}
                   onClick={() => { }}
-                  className={`z-20 big-button text-white font-bold`}
+                  className={`z-20 big-button text-white font-bold flex justify-center items-center`}
                 >
 
                   <span className={`${interFont.className} capitalize`}>
