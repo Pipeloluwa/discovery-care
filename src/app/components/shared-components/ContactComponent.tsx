@@ -86,6 +86,22 @@ export const ContactComponent = () => {
   }
 
 
+
+  const timeZone = 'Australia/Perth'; // AWST (Australian Western Standard Time)
+  const options: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true, 
+    timeZone: timeZone,
+  };
+  const australiaDateFormatter = new Intl.DateTimeFormat('en-AU', options);
+
+
+
   return (
     <div className="w-full lg:min-h-svh flex lg:pb-0 pb-32 bg-gradient-to-b from-white via-blue-200  to-blue-500">
       <MarginContainer>
@@ -223,7 +239,7 @@ export const ContactComponent = () => {
                 {"Get in touch"}
               </h5>
               <input name='title' defaultValue={"Discovery Care Group Contact"} className='hidden' />
-              <input name='time' defaultValue={`${(new Date).toUTCString()} UTC`} className='hidden' />
+              <input name='time' defaultValue={`${australiaDateFormatter.format(new Date())} Australia/Perth Ellenbrook WA`} className='hidden' />
 
               <motion.div
                 variants={animateFadeUp}
