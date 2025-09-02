@@ -15,27 +15,27 @@ import { FaQuoteRight } from 'react-icons/fa';
 const sucessStoryData = [
     {
         id: 1,
-        image: 'https://images.unsplash.com/photo-1551892589-865f69869476?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        image: 'images/pictures/Others/11.webp',
         title: 'Community Event',
         description: 'A community event bringing people together for a cause.',
     },
 
     {
         id: 2,
-        image: 'https://plus.unsplash.com/premium_photo-1688125414656-ab91164cbd1e?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        image: 'images/pictures/Others/13.webp',
         title: 'Volunteer Work',
         description: 'Volunteers working hard to make a difference in the community.',
     },
     {
         id: 3,
-        image: 'https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        image: 'images/pictures/Others/14.webp',
         title: 'Fundraising Event',
         description: 'A successful fundraising event to support our cause.',
 
     },
     {
         id: 4,
-        image: 'https://images.unsplash.com/photo-1604881991720-f91add269bed?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        image: 'images/pictures/Others/15.webp',
         title: 'Community Gathering',
         description: 'A gathering of community members to discuss important issues.',
 

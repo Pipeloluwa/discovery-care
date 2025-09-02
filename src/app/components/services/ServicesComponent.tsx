@@ -12,7 +12,7 @@ export const ServicesComponent = () => {
     const servicesItemData = [
         {
             title: "Support independent Living/ Specialised Disability Accommodation ",
-            image: "https://images.unsplash.com/photo-1478061653917-455ba7f4a541?q=80&w=1700&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            image: "images/pictures/Others/31.webp",
             values: [
                 "Assistance with personal care, hygiene, and meal preparation",
                 "Support with household tasks such as cleaning, laundry, and shopping",
@@ -23,7 +23,7 @@ export const ServicesComponent = () => {
 
         {
             title: "Community Participation",
-            image: "https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            image: "images/pictures/Others/33.webp",
             values: [
                 "Accompanying participants to social, recreational, or educational activities",
                 "Supporting confidence-building and social inclusion",
@@ -35,7 +35,7 @@ export const ServicesComponent = () => {
 
         {
             title: "Support Coordination",
-            image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            image: "images/pictures/Others/1.webp",
             values: [
                 "Helping participants understand and navigate their NDIS plan",
                 "Connecting participants to the right services and providers",
@@ -46,7 +46,7 @@ export const ServicesComponent = () => {
 
         {
             title: "Therapeutic Supports",
-            image: "https://plus.unsplash.com/premium_photo-1668061706855-26d4cf0f6248?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            image: "images/pictures/Others/3.webp",
             values: [
                 "Access to allied health professionals (Occupational Therapists, Physiotherapists, Speech Pathologists, and Counselling services).",
                 "Therapy plans to enhance independence, mobility, and daily functioning"
@@ -56,7 +56,7 @@ export const ServicesComponent = () => {
 
         {
             title: "Skill Development & Capacity Building",
-            image: "https://images.unsplash.com/photo-1478061653917-455ba7f4a541?q=80&w=1700&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            image: "images/pictures/Others/4.webp",
             values: [
                 "Life skills training such as cooking, budgeting, and using public transport",
                 "Employment preparation and job-readiness programs",
@@ -67,7 +67,7 @@ export const ServicesComponent = () => {
 
         {
             title: "Short-Term Accommodation & Respite",
-            image: "https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            image: "images/pictures/Others/5.webp",
             values: [
                 "Temporary care to give families and carers a break",
                 "Safe, comfortable, and supportive environments for participants"

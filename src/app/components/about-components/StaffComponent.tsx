@@ -10,6 +10,7 @@ import { motion } from 'motion/react';
 import { animateFadeUpShort, animateFromLeft, animateGradualSpacing } from '@/app/animation/animationVariants';
 import { SubHeaderComponent } from '../shared-components/SubHeaderComponent'
 import { div } from 'motion/react-client'
+import { BsPersonBoundingBox } from 'react-icons/bs'
 
 
 
@@ -17,55 +18,55 @@ import { div } from 'motion/react-client'
 const staffData = [
     {
         id: 1,
-        image: 'https://images.unsplash.com/photo-1743456117605-e673068f0fa5?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        image: 'images/pictures/PictureIcons/1.webp',
         title: 'Director of Community Outreach',
         name: 'Ngozi Adebayo'
     },
 
     {
         id: 2,
-        image: 'https://plus.unsplash.com/premium_photo-1681883882438-84077fb862f4?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        image: 'images/pictures/PictureIcons/2.webp',
         title: 'Volunteer Coordinator',
         name: 'Chukwuemeka Okoro'
     },
     {
         id: 3,
-        image: 'https://images.unsplash.com/photo-1478061653917-455ba7f4a541?q=80&w=1700&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        image: 'images/pictures/PictureIcons/1.webp',
         title: 'Fundraising Manager',
         name: 'Ifeoma Eze'
 
     },
     {
         id: 4,
-        image: 'https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D',
+        image: 'images/pictures/PictureIcons/2.webp',
         title: 'Community Liaison',
         name: 'Babatunde Adebisi'
 
     },
     {
         id: 5,
-        image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D',
+        image: 'images/pictures/PictureIcons/1.webp',
         title: 'Volunteer Assistant',
         name: 'Amina Musa'
 
     },
     {
         id: 6,
-        image: 'https://plus.unsplash.com/premium_photo-1670588892177-48887618307d?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D',
+        image: 'images/pictures/PictureIcons/2.webp',
         title: 'Caregiver Trainer',
         name: 'Olufemi Ogunleye'
 
     },
     {
         id: 7,
-        image: 'https://images.unsplash.com/photo-1589156288859-f0cb0d82b065?q=80&w=386&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D',
+        image: 'images/pictures/PictureIcons/1.webp',
         title: 'Senior Services Coordinator',
         name: 'Adaugo Okeke'
     },
 
     {
         id: 8,
-        image: 'https://plus.unsplash.com/premium_photo-1668061706855-26d4cf0f6248?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D',
+        image: 'images/pictures/PictureIcons/2.webp',
         title: 'Community Support Specialist',
         name: 'Emeka Ibe'
     },
@@ -156,12 +157,14 @@ export const StaffComponent = () => {
                                                 custom={0}
 
                                                 className='absolute top-0 bottom-0 left-0 right-0 flex w-full h-full object-cover object-top bg-gray-300'>
-                                                <motion.img
+                                                {/* <motion.img
                                                     animate={{ scale: [1, 1.2, 1] }}
                                                     transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}
                                                     alt='project picture'
                                                     src={item.image}
-                                                    className='flex w-full h-full object-cover' />
+                                                    className='flex w-full h-full object-cover' /> */}
+
+                                                <BsPersonBoundingBox className='size-[100px] self-center mx-auto' />
 
                                             </motion.div>
 

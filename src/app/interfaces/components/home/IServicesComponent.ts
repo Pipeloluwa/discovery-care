@@ -2,6 +2,8 @@
 export interface ISelectedService{
     id: number;
     title: string;
-    description: string;
+    fullTitle: string;
     image: string;
+    description: any;
 }
+

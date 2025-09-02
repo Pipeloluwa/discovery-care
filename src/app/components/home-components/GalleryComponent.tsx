@@ -15,55 +15,55 @@ import { div } from 'motion/react-client'
 const galleryData = [
     {
         id: 1,
-        image: 'https://images.unsplash.com/photo-1743456117605-e673068f0fa5?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        image: 'images/pictures/Others/3.webp',
         title: 'Community Event',
         description: 'A community event bringing people together for a cause.',
     },
 
     {
         id: 2,
-        image: 'https://plus.unsplash.com/premium_photo-1681883882438-84077fb862f4?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        image: 'images/pictures/Others/4.webp',
         title: 'Volunteer Work',
         description: 'Volunteers working hard to make a difference in the community.',
     },
     {
         id: 3,
-        image: 'https://images.unsplash.com/photo-1478061653917-455ba7f4a541?q=80&w=1700&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        image: 'images/pictures/Others/5.webp',
         title: 'Fundraising Event',
         description: 'A successful fundraising event to support our cause.',
 
     },
     {
         id: 4,
-        image: 'https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        image: 'images/pictures/Others/6.webp',
         title: 'Community Gathering',
         description: 'A gathering of community members to discuss important issues.',
 
     },
     {
         id: 5,
-        image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        image: 'images/pictures/Others/7.webp',
         title: 'Volunteer Work',
         description: 'A successful fundraising event to support our cause.',
 
     },
     {
         id: 6,
-        image: 'https://plus.unsplash.com/premium_photo-1670588892177-48887618307d?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        image: 'images/pictures/Others/8.webp',
         title: 'Caregiver Training',
         description: 'A gathering of community members to discuss important issues.',
 
     },
     {
         id: 7,
-        image: 'https://images.unsplash.com/photo-1589156288859-f0cb0d82b065?q=80&w=386&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        image: 'images/pictures/Others/9.webp',
         title: 'Visiting Seniors',
         description: 'A community event bringing people together for a cause.',
     },
 
     {
         id: 8,
-        image: 'https://plus.unsplash.com/premium_photo-1668061706855-26d4cf0f6248?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        image: 'images/pictures/Others/10.webp',
         title: 'Community Support',
         description: 'Volunteers working hard to make a difference in the community.',
     },

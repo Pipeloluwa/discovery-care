@@ -10,7 +10,7 @@ export const AboutComponent = () => {
     const aboutData = {
         "description": "We are a dedicated NDIS service provider committed to delivering high-quality, participant-focused care. Our goal is to help people with disabilities access the right support to lead fulfilling lives. Whether it’s assistance at home, community engagement, therapy services, or skill-building programs, DiscoveryCare Group walks with you every step of the way.",
         "buttonText": "Learn More",
-        "image": "https://images.unsplash.com/photo-1743456117605-e673068f0fa5?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "image": "/images/pictures/Others/1.webp",
         "statistics": [
             {
                 "title": "Great Donations",

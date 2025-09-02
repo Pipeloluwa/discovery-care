@@ -13,7 +13,7 @@ const newsData: INewsData[] = [
         id: 1,
         title: "How to become healthy",
         date: "July 15, 2025",
-        image: "https://plus.unsplash.com/premium_photo-1668061706855-26d4cf0f6248?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: "images/pictures/Others/19.webp",
         content: "If you're tossing and turning every night, there's some bad news. Your brain could be in big trouble! Turns out, there are some pretty scary side effects to sleep loss, all around. (By the way, getting too much sleep isn't great either.) Here are some of the most common side effects of sleep loss: Memory problems, mood swings, weakened immune system, and increased risk of chronic diseases. Make sure to prioritize your sleep for better health and well-being. Also, try to maintain a consistent sleep schedule, create a relaxing bedtime routine, and limit screen time before bed. These habits can help improve your sleep quality and overall health. Furthermore, consider consulting a healthcare professional if you continue to experience sleep issues. They can provide personalized advice and treatment options to help you get the restful sleep you need. Not only will this improve your health, but it can also enhance your productivity and quality of life. Remember, sleep is essential for your body and mind to function at their best. So, make it a priority and take steps to ensure you get enough restful sleep each night. If you're tossing and turning every night, there's some bad news. Your brain could be in big trouble! Turns out, there are some pretty scary side effects to sleep loss, all around. (By the way, getting too much sleep isn't great either.) Here are some of the most common side effects of sleep loss: Memory problems, mood swings, weakened immune system, and increased risk of chronic diseases. Make sure to prioritize your sleep for better health and well-being. Also, try to maintain a consistent sleep schedule, create a relaxing bedtime routine, and limit screen time before bed. These habits can help improve your sleep quality and overall health. Furthermore, consider consulting a healthcare professional if you continue to experience sleep issues. They can provide personalized advice and treatment options to help you get the restful sleep you need. Not only will this improve your health, but it can also enhance your productivity and quality of life. Remember, sleep is essential for your body and mind to function at their best. So, make it a priority and take steps to ensure you get enough restful sleep each night. If you're tossing and turning every night, there's some bad news. Your brain could be in big trouble! Turns out, there are some pretty scary side effects to sleep loss, all around. (By the way, getting too much sleep isn't great either.) Here are some of the most common side effects of sleep loss: Memory problems, mood swings, weakened immune system, and increased risk of chronic diseases. Make sure to prioritize your sleep for better health and well-being. Also, try to maintain a consistent sleep schedule, create a relaxing bedtime routine, and limit screen time before bed. These habits can help improve your sleep quality and overall health. Furthermore, consider consulting a healthcare professional if you continue to experience sleep issues. They can provide personalized advice and treatment options to help you get the restful sleep you need. Not only will this improve your health, but it can also enhance your productivity and quality of life. Remember, sleep is essential for your body and mind to function at their best. So, make it a priority and take steps to ensure you get enough restful sleep each night."
     },
 
@@ -21,7 +21,7 @@ const newsData: INewsData[] = [
         id: 2,
         title: "Importance of mental health",
         date: "July 20, 2025",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: "images/pictures/Others/16.webp",
         content: "Mental health is just as important as physical health, and it’s essential to take care of both. Here are some tips for maintaining good mental health: Practice self-care, stay connected with loved ones, and seek professional help if needed."
     },
 
@@ -29,7 +29,7 @@ const newsData: INewsData[] = [
         id: 3,
         title: "Healthy eating habits",
         date: "July 25, 2025",
-        image: "https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: "images/pictures/Others/17.webp",
         content: "Eating a balanced diet is crucial for maintaining good health. Focus on incorporating a variety of fruits, vegetables, whole grains, and lean proteins into your meals. Avoid processed foods and sugary drinks as much as possible."
     },
 
@@ -37,7 +37,7 @@ const newsData: INewsData[] = [
         id: 4,
         title: "Staying active and fit",
         date: "July 30, 2025",
-        image: "https://images.unsplash.com/photo-1478061653917-455ba7f4a541?q=80&w=1700&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        image: "images/pictures/Others/18.webp",
         content: "Regular physical activity is essential for maintaining a healthy lifestyle. Aim for at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity each week, along with strength training exercises."
     }
 ]
