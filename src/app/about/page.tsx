@@ -6,6 +6,7 @@ import { OurStoryComponent } from "../components/about-components/OurStoryCompon
 import { StaffComponent } from "../components/about-components/StaffComponent";
 import { WelcomeScreenComponent } from "../components/shared-components/WelcomeScreenComponent";
 import { setNavValue } from "../state_management/reducers/client-reducers/navValue";
+import { AboutComponent } from "../components/home-components/AboutComponent";
 
 export default function AboutPage() {
   const dispatch = useDispatch();
@@ -15,11 +16,12 @@ export default function AboutPage() {
 
 
   return (
-    <div className="-mt-[80px] md:space-y-32 space-y-16">
+    <div className="-mt-[80px] mb-[80px] md:space-y-32 space-y-16">
       <WelcomeScreenComponent title="About Us" />
+      <AboutComponent />
       <OurStoryComponent />
       <OurCoreValues />
-      <StaffComponent />
+      {/* <StaffComponent /> */}
     </div>
   );
 }

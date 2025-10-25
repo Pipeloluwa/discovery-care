@@ -6,6 +6,7 @@ import {
   animateBlurIn,
   animateFadeUp,
 } from "@/app/animation/animationVariants";
+import { FaqFloatingComponent } from "./FaqFloatingComponent";
 
 const faqs = [
   {
@@ -17,13 +18,13 @@ const faqs = [
     ],
     bullets: [
       [
-          "Daily living assistance (In home support)",
-          "Transportation",
-          "Community access and participation activities",
-          "Specialist Disability Accommodation (SDA) and Supported Independent Living (SIL) solutions",
-          "Support coordination and specialised support coordination",
-          "⁠Respite support",
-          "Psychological and Therapeutic support",,
+        "Daily living assistance (In home support)",
+        "Transportation",
+        "Community access and participation activities",
+        "Specialist Disability Accommodation (SDA) and Supported Independent Living (SIL) solutions",
+        "Support coordination and specialised support coordination",
+        "⁠Respite support",
+        "Psychological and Therapeutic support", ,
       ],
     ],
   },
@@ -75,10 +76,10 @@ export const FaqComponent = () => {
     const handleHeightChange = (entries: ResizeObserverEntry[]) => {
       for (let entry of entries) {
         const newHeight = entry.target.scrollHeight;
-        if (faqParentContainerRef.current)
-          faqParentContainerRef.current.style.height = `${
-            window.innerWidth >= 1024 && newHeight
-          }px`;
+        if (faqParentContainerRef.current) {
+          faqParentContainerRef.current.style.height = `${window.innerWidth >= 1024 && newHeight}px`;
+          faqScrollY = newHeight;
+        }
       }
     };
 
@@ -90,8 +91,23 @@ export const FaqComponent = () => {
     };
   }, []);
 
+
+  const scrollToFaqComponent = () => {
+    faqParentContainerRef.current?.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+  }
+
   return (
     <div className="w-full lg:min-h-[480px] flex lg:flex-row flex-col justify-center items-start mb-32 bg-blue-50 shadow">
+      <div
+        onClick={() => scrollToFaqComponent()}
+        className="z-40 size-[50px] fixed right-[20px] bottom-[20px] flex justify-center items-center font-bold text-sm rounded-full tracking-widest text-white bg-black/50 shadow-sm shadow-gray-500 animate-bounce transition-all duration-1000 border cursor-pointer">
+
+        <p>
+          {"FAQ?"}
+        </p>
+
+      </div>
+
       <motion.div
         ref={faqParentContainerRef}
         variants={animateBlurIn}
@@ -125,29 +141,25 @@ export const FaqComponent = () => {
             initial={"offscreen"}
             whileInView={"onscreen"}
             custom={0.2 * index}
-            className={`${index === faqs.length - 1 && "border-b"} ${
-              openIndex === index && "shadow"
-            } w-full flex flex-col border-t border-gray-200`}
+            className={`${index === faqs.length - 1 && "border-b"} ${openIndex === index && "shadow"
+              } w-full flex flex-col border-t border-gray-200`}
           >
             <button
-              className={` ${
-                openIndex === index
-                  ? "bg-blue-500 text-white"
-                  : "bg-transparent"
-              } w-full p-4 transition-colors duration-300 text-left font-semibold focus:outline-none flex justify-between items-center`}
+              className={` ${openIndex === index
+                ? "bg-blue-500 text-white"
+                : "bg-transparent"
+                } w-full p-4 transition-colors duration-300 text-left font-semibold focus:outline-none flex justify-between items-center`}
               onClick={() => handleToggle(index)}
               aria-expanded={openIndex === index}
             >
               {faq.question}
               <span
-                className={`${
-                  openIndex === index ? "text-white" : "text-blue-500"
-                } ml-2`}
+                className={`${openIndex === index ? "text-white" : "text-blue-500"
+                  } ml-2`}
               >
                 <IoArrowForwardOutline
-                  className={`${
-                    openIndex === index ? "rotate-90" : "rotate-0"
-                  } transition-transform duration-900 text-[20px] font-bold`}
+                  className={`${openIndex === index ? "rotate-90" : "rotate-0"
+                    } transition-transform duration-900 text-[20px] font-bold`}
                 />
               </span>
             </button>
@@ -158,16 +170,16 @@ export const FaqComponent = () => {
                 </p>
 
                 {
-                    faq.bullets && faq.bullets[0]?.map((bullet, index) => (
-                      <ul
-                        key={index}
-                        className="list-disc list-inside mx-6 text-gray-700 mb-4 transform-fill duration-300"
-                        >
-                            <li>
-                                {bullet}
-                            </li>
-                        </ul>
-                    ))
+                  faq.bullets && faq.bullets[0]?.map((bullet, index) => (
+                    <ul
+                      key={index}
+                      className="list-disc list-inside mx-6 text-gray-700 mb-4 transform-fill duration-300"
+                    >
+                      <li>
+                        {bullet}
+                      </li>
+                    </ul>
+                  ))
                 }
 
                 {faq.adittional &&

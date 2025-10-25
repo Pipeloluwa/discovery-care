@@ -1,25 +1,18 @@
-"use client";
+"use client";;
 import MarginContainer from "@/app/Containers/MarginContainer";
 import { ISelectedService } from "@/app/interfaces/components/home/IServicesComponent";
 import { motion } from "motion/react";
-import { div } from "motion/react-client";
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { SubHeaderComponent } from "../shared-components/SubHeaderComponent";
-import {
-  animateFadeUp,
-  animateFromLeft,
-  animateRotateFromLeft,
-  animateRotateFromRight,
-} from "@/app/animation/animationVariants";
-import { AiOutlineSolution } from "react-icons/ai";
+import { animateFadeUp, animateFromLeft, animateRotateFromLeft } from "@/app/animation/animationVariants";
 import { FaPeopleCarry, FaHouseUser, FaHandHoldingHeart } from "react-icons/fa";
-import { GiEngagementRing, GiSkills } from "react-icons/gi";
-import { RiBrain2Fill, RiPsychotherapyFill } from "react-icons/ri";
-import { SiHomeassistantcommunitystore } from "react-icons/si";
+import { GiEngagementRing } from "react-icons/gi";
+import { RiPsychotherapyFill } from "react-icons/ri";
 import Link from "next/link";
 import { MdEmojiTransportation } from "react-icons/md";
 import { IoConstructSharp } from "react-icons/io5";
 import { FaHandsHoldingChild } from "react-icons/fa6";
+import { IoIosHome } from "react-icons/io";
 
 export const ServicesComponent = () => {
   const servicesData = {
@@ -119,11 +112,17 @@ export const ServicesComponent = () => {
           [
             "Our personalized support services include:",
             [
+              "⁠Respite Care Services",
               "Daily living assistance (personal care, meal preparation, household tasks)",
               "Independent living skills development",
               "Emotional well-being support",
               "Social connection and community engagement",
             ],
+          ],
+
+
+          [
+            "Our respite support offers temporary care and accommodation in a safe, supportive environment, providing families and carers with a much-needed break. We recognize the value of respite care and are committed to delivering exceptional support and care for participants, allowing their loved ones to recharge and prioritize their own well-being.",
           ],
 
           [
@@ -171,24 +170,38 @@ export const ServicesComponent = () => {
 
       {
         id: 7,
-        title: "Care",
-        fullTitle: "⁠Respite Care Services",
-        icon: <FaHandHoldingHeart className="lg:size-[40px] size-[30px]" />,
-        image: "/images/pictures/HomeServices/Care.webp",
-        description: [
-          ["Our respite support offers temporary care and accommodation in a safe, supportive environment, providing families and carers with a much-needed break. We recognize the value of respite care and are committed to delivering exceptional support and care for participants, allowing their loved ones to recharge and prioritize their own well-being."]
-        ]
-      },
-
-      {
-        id: 8,
         title: "Therapy",
         fullTitle: "Psychological and Therapeutic support",
         icon: <RiPsychotherapyFill className="lg:size-[40px] size-[30px]"/>,
         image: "/images/pictures/HomeServices/Support.webp",
         description: [
-          ["Our respite support offers temporary care and accommodation in a safe, supportive environment, providing families and carers with a much-needed break. We recognize the value of respite care and are committed to delivering exceptional support and care for participants, allowing their loved ones to recharge and prioritize their own well-being."]
+          ["We understand that emotional and mental wellbeing is essential to living a fulfilling life. Our Psychological and Therapeutic Support services help participants develop coping strategies, build resilience, and achieve their goals. Through compassionate, evidence-based care, we connect participants with qualified professionals who provide therapy, counselling, and behavioural support tailored to individual needs. Our goal is to strengthen confidence, independence, and overall wellbeing."]
         ]
+      },
+
+            {
+        id: 8,
+        title: "In-Home",
+        fullTitle: "In-Home / Drop-In Care",
+        icon: <IoIosHome className="lg:size-[40px] size-[30px]"/>,
+        image: "/images/pictures/HomeServices/Care.webp",
+        description:
+          [
+            [
+              "Our Home Support Services are designed for anyone needing daily living support, whether or not they are enrolled in an NDIS program. We take a personalised approach, ensuring consistent communication to meet each client’s individual needs."
+            ],
+
+            [
+              "Support Provided Includes:",
+              [
+                "Personal hygiene assistance",
+                "Continence support",
+                "Medication administration",
+                "Meal preparation",
+                "General household tasks and cleaning",
+              ],
+            ]
+          ],
       },
 
     ],
@@ -310,7 +323,7 @@ export const ServicesComponent = () => {
 
                            <ul className="list-disc list-inside ml-4">
                             {descItem[1] && descItem[1].map((bullet: string, bulletIndex: number) => (
-                              <li key={`bullet-${bulletIndex}`}>
+                              <li key={`bullet-${descIndex} - ${bulletIndex}`}>
                                 {bullet}
                               </li>
                             ))}

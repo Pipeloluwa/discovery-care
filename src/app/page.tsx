@@ -12,6 +12,7 @@ import { MapComponent } from "./components/shared-components/MapComponent";
 import { useEffect } from "react";
 import { setNavValue } from "./state_management/reducers/client-reducers/navValue";
 import {WelcomeScreenComponent} from "./components/home-components/WelcomeScreenComponent";
+import { WhyChooseUsComponent } from "./components/home-components/WhyChooseUsComponent";
 
 export default function Home() {
     const dispatch= useDispatch();
@@ -28,10 +29,10 @@ export default function Home() {
         <OverviewComponent />
       </main>
 
-      <AboutComponent />
+      <WhyChooseUsComponent />
       <ServicesComponent />
       <GalleryComponent />
-      <SuccessStories />
+      {/* <SuccessStories /> */}
       <NewsComponents />
       <FaqComponent />
       <ContactComponent />
