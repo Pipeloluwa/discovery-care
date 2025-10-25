@@ -1,4 +1,4 @@
-"use client";
+"use client";;
 import { useEffect, useRef, useState } from "react";
 import { IoArrowForwardOutline } from "react-icons/io5";
 import { motion } from "motion/react";
@@ -6,7 +6,6 @@ import {
   animateBlurIn,
   animateFadeUp,
 } from "@/app/animation/animationVariants";
-import { FaqFloatingComponent } from "./FaqFloatingComponent";
 
 const faqs = [
   {
