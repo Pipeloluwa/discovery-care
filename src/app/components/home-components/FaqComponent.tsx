@@ -75,10 +75,8 @@ export const FaqComponent = () => {
     const handleHeightChange = (entries: ResizeObserverEntry[]) => {
       for (let entry of entries) {
         const newHeight = entry.target.scrollHeight;
-        if (faqParentContainerRef.current) {
+        if (faqParentContainerRef.current) 
           faqParentContainerRef.current.style.height = `${window.innerWidth >= 1024 && newHeight}px`;
-          faqScrollY = newHeight;
-        }
       }
     };
 
